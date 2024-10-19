@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +52,86 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\FHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FHome.Designer.cs">
+      <DependentUpon>FHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddEmployee.Designer.cs">
+      <DependentUpon>FAddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddFood.Designer.cs">
+      <DependentUpon>FAddFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddGuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddGuest.Designer.cs">
+      <DependentUpon>FAddGuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddRoom.Designer.cs">
+      <DependentUpon>FAddRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FBillDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FBillDetail.Designer.cs">
+      <DependentUpon>FBillDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\LCommon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\LCommon.Designer.cs">
+      <DependentUpon>LCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\LHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\LHome.Designer.cs">
+      <DependentUpon>LHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FHome.resx">
+      <DependentUpon>FHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddEmployee.resx">
+      <DependentUpon>FAddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddFood.resx">
+      <DependentUpon>FAddFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddGuest.resx">
+      <DependentUpon>FAddGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddRoom.resx">
+      <DependentUpon>FAddRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FBillDetail.resx">
+      <DependentUpon>FBillDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\LCommon.resx">
+      <DependentUpon>LCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\LHome.resx">
+      <DependentUpon>LHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +141,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
