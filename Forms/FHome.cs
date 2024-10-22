@@ -45,7 +45,7 @@ namespace HotelManagementSystemProject.Forms
         private void FHome_Load(object sender, EventArgs e)
         {
             container(new LHome());
-            //thanh
+            //thanhádasdasdasd
         }
 
         private void btnHome_Click(object sender, EventArgs e)
