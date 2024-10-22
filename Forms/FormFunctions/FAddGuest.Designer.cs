@@ -32,7 +32,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddGuest = new Guna.UI2.WinForms.Guna2Button();
             this.cbSex = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -94,20 +94,20 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Guest ID";
             // 
-            // btn
+            // btnAddGuest
             // 
-            this.btn.BorderRadius = 10;
-            this.btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn.ForeColor = System.Drawing.Color.Black;
-            this.btn.Location = new System.Drawing.Point(211, 473);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(180, 45);
-            this.btn.TabIndex = 12;
-            this.btn.Text = "Add Guest";
+            this.btnAddGuest.BorderRadius = 10;
+            this.btnAddGuest.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddGuest.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddGuest.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddGuest.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddGuest.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddGuest.ForeColor = System.Drawing.Color.Black;
+            this.btnAddGuest.Location = new System.Drawing.Point(211, 473);
+            this.btnAddGuest.Name = "btnAddGuest";
+            this.btnAddGuest.Size = new System.Drawing.Size(180, 45);
+            this.btnAddGuest.TabIndex = 12;
+            this.btnAddGuest.Text = "Add Guest";
             // 
             // cbSex
             // 
@@ -260,7 +260,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnAddGuest);
             this.Controls.Add(this.cbSex);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -277,7 +277,7 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label2;
-        public Guna.UI2.WinForms.Guna2Button btn;
+        public Guna.UI2.WinForms.Guna2Button btnAddGuest;
         public Guna.UI2.WinForms.Guna2ComboBox cbSex;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label5;

@@ -32,7 +32,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtRomDes = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddFood = new Guna.UI2.WinForms.Guna2Button();
             this.cbType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -103,20 +103,20 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Room Description";
             // 
-            // guna2Button1
+            // btnAddFood
             // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(211, 473);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 12;
-            this.guna2Button1.Text = "Add Food";
+            this.btnAddFood.BorderRadius = 10;
+            this.btnAddFood.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddFood.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddFood.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddFood.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddFood.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.ForeColor = System.Drawing.Color.Black;
+            this.btnAddFood.Location = new System.Drawing.Point(211, 473);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(180, 45);
+            this.btnAddFood.TabIndex = 12;
+            this.btnAddFood.Text = "Add Food";
             // 
             // cbType
             // 
@@ -227,7 +227,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtRomDes);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnAddFood);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -245,7 +245,7 @@
         public System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2TextBox txtRomDes;
         public System.Windows.Forms.Label label3;
-        public Guna.UI2.WinForms.Guna2Button guna2Button1;
+        public Guna.UI2.WinForms.Guna2Button btnAddFood;
         public Guna.UI2.WinForms.Guna2ComboBox cbType;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label5;
