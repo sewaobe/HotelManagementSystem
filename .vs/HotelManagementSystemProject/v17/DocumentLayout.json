@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ProjectDBMS\\HotelManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|d:\\projectdbms\\hotelmanagementsystem\\forms\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|solutionrelative:forms\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|D:\\ProjectDBMS\\HotelManagementSystem\\forms\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|solutionrelative:forms\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|D:\\ProjectDBMS\\HotelManagementSystem\\forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|solutionrelative:forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|D:\\ProjectDBMS\\HotelManagementSystem\\forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|solutionrelative:forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|D:\\ProjectDBMS\\HotelManagementSystem\\layout\\lcommon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|solutionrelative:layout\\lcommon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|D:\\ProjectDBMS\\HotelManagementSystem\\layout\\lcommon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF78F5F3-788A-4CC2-AF00-B6A0F2DB3320}|HotelManagementSystemProject.csproj|solutionrelative:layout\\lcommon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FHome.cs",
+              "DocumentMoniker": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FHome.cs",
+              "RelativeDocumentMoniker": "Forms\\FHome.cs",
+              "ToolTip": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FHome.cs",
+              "RelativeToolTip": "Forms\\FHome.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwC4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T18:11:11.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FHome.cs [Design]",
+              "DocumentMoniker": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FHome.cs",
+              "RelativeDocumentMoniker": "Forms\\FHome.cs",
+              "ToolTip": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FHome.cs [Design]",
+              "RelativeToolTip": "Forms\\FHome.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T18:10:55.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FLogin.cs",
+              "DocumentMoniker": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FLogin.cs",
+              "RelativeDocumentMoniker": "Forms\\FLogin.cs",
+              "ToolTip": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FLogin.cs",
+              "RelativeToolTip": "Forms\\FLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T18:08:28.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FLogin.cs [Design]",
+              "DocumentMoniker": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FLogin.cs",
+              "RelativeDocumentMoniker": "Forms\\FLogin.cs",
+              "ToolTip": "D:\\ProjectDBMS\\HotelManagementSystem\\Forms\\FLogin.cs [Design]",
+              "RelativeToolTip": "Forms\\FLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T18:08:26.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LCommon.cs [Design]",
+              "DocumentMoniker": "D:\\ProjectDBMS\\HotelManagementSystem\\Layout\\LCommon.cs",
+              "RelativeDocumentMoniker": "Layout\\LCommon.cs",
+              "ToolTip": "D:\\ProjectDBMS\\HotelManagementSystem\\Layout\\LCommon.cs [Design]",
+              "RelativeToolTip": "Layout\\LCommon.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T18:07:47.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LCommon.cs",
+              "DocumentMoniker": "D:\\ProjectDBMS\\HotelManagementSystem\\Layout\\LCommon.cs",
+              "RelativeDocumentMoniker": "Layout\\LCommon.cs",
+              "ToolTip": "D:\\ProjectDBMS\\HotelManagementSystem\\Layout\\LCommon.cs",
+              "RelativeToolTip": "Layout\\LCommon.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAYwDsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-22T18:07:47.584Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
