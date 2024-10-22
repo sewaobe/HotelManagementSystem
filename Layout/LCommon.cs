@@ -61,7 +61,7 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Reservation";
                     lblAddObject.Text = "Guest Detail";
                     FAddGuest fAddGuest = new FAddGuest();
-                    fAddGuest.btn.Text = "Procced";
+                    fAddGuest.btnAddGuest.Text = "Procced";
                     container(fAddGuest);
                     break;
                 case "Restaurant":
