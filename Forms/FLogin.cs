@@ -17,7 +17,7 @@ namespace HotelManagementSystemProject
             InitializeComponent();
             //hao
             //Haoasds
-            //test
+            //testdfskfhk
         }
     }
 }
