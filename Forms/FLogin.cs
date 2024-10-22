@@ -15,6 +15,8 @@ namespace HotelManagementSystemProject
         public FLogin()
         {
             InitializeComponent();
+
+            ///Hao
         }
     }
 }
