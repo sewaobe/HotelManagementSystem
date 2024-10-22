@@ -113,6 +113,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFunctions\FAddEmployee.resx">
       <DependentUpon>FAddEmployee.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFunctions\FAddFood.resx">
       <DependentUpon>FAddFood.cs</DependentUpon>
