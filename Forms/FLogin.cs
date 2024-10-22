@@ -16,6 +16,8 @@ namespace HotelManagementSystemProject
         {
             InitializeComponent();
             //hao
+            //Hao
+            //test
         }
     }
 }
