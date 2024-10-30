@@ -23,7 +23,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddWork_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC ThemCongViec  @TenCV, @Luong", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("ThemCongViec", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@TenCV", SqlDbType.NVarChar).Value = txtWorkName.Text;
             cmd.Parameters.Add("@Luong", SqlDbType.Decimal).Value = Decimal.Parse(txtWorkRate.Text);
@@ -41,7 +41,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnEditWork_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC SuaCongViec @MaCV, @TenCV, @Luong", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SuaCongViec", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = txtWorkID.Text;
             cmd.Parameters.Add("@TenCV", SqlDbType.NVarChar).Value = txtWorkName.Text;
@@ -60,7 +60,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnRemoveWork_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC XoaCongViec @MaCV", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("XoaCongViec", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = txtWorkID.Text;
             if (cmd.ExecuteNonQuery() > 0)

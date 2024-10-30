@@ -100,7 +100,7 @@ namespace HotelManagementSystemProject.Forms
         private DataTable searchService()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC SearchService @Index", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("EXEC SearchService @Index", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Index", SqlDbType.NChar, 10).Value = txtSearch.Text;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -112,7 +112,7 @@ namespace HotelManagementSystemProject.Forms
         private DataTable searchEmployee()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC SearchEmployee @Index", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("EXEC SearchEmployee @Index", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Index", SqlDbType.NChar, 10).Value = txtSearch.Text;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -124,7 +124,7 @@ namespace HotelManagementSystemProject.Forms
         private DataTable searchGuest()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC TimKiemKhachHang @TimKiem", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("EXEC TimKiemKhachHang @TimKiem", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@TimKiem", SqlDbType.Int, 10).Value = txtSearch.Text;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -136,7 +136,7 @@ namespace HotelManagementSystemProject.Forms
         private DataTable searchRoom()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC HienThiPhong @MaPhong", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("EXEC HienThiPhong @MaPhong", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = txtSearch.Text;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);

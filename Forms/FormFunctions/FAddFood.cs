@@ -28,7 +28,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC AddService @TenDV, @GiaDV, @MoTa, @MaLoaiDV, @TrangThai", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("AddService", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@TenDV", SqlDbType.NVarChar).Value = txtName.Text;
             cmd.Parameters.Add("@GiaDV", SqlDbType.Decimal).Value = Decimal.Parse(txtPrice.Text);
@@ -49,7 +49,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnEditService_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC UpdateService @MaDV, @TenDV, @GiaDV, @MoTa, @MaLoaiDV, @TrangThai", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("UpdateService", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaDV", SqlDbType.Int, 10).Value = txtID.Text;
             cmd.Parameters.Add("@TenDV", SqlDbType.NVarChar).Value = txtName.Text;
@@ -76,7 +76,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dich vu này không?", "Remove service", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("EXEC DeleteService @MaDV", db.sqlConn);
+                    SqlCommand cmd = new SqlCommand("DeleteService", db.getConnection);
                     cmd.Parameters.Add("@MaDV", SqlDbType.Int, 10).Value = txtID.Text;
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() == -1)
