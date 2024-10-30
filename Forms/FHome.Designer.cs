@@ -89,6 +89,7 @@
             this.txtSearch.Size = new System.Drawing.Size(286, 47);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextOffset = new System.Drawing.Point(0, -2);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnNotice
             // 

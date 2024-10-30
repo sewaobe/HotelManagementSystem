@@ -41,9 +41,11 @@
             this.btnAddEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.cbSex = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtRecruitmentday = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblWorkID = new System.Windows.Forms.Label();
+            this.cbbWordID = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtRecruitmentday = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtNumberShifts = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
@@ -216,6 +218,7 @@
             this.btnAddEmployee.Size = new System.Drawing.Size(186, 45);
             this.btnAddEmployee.TabIndex = 27;
             this.btnAddEmployee.Text = "Add Employee";
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // cbSex
             // 
@@ -248,15 +251,46 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Employee Name";
             // 
-            // label7
+            // lblWorkID
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(208, 390);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 22);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Number of shifts";
+            this.lblWorkID.AutoSize = true;
+            this.lblWorkID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWorkID.Location = new System.Drawing.Point(12, 456);
+            this.lblWorkID.Name = "lblWorkID";
+            this.lblWorkID.Size = new System.Drawing.Size(81, 22);
+            this.lblWorkID.TabIndex = 44;
+            this.lblWorkID.Text = "Work ID";
+            // 
+            // cbbWordID
+            // 
+            this.cbbWordID.BackColor = System.Drawing.Color.Transparent;
+            this.cbbWordID.BorderRadius = 5;
+            this.cbbWordID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbWordID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbWordID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbWordID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbWordID.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbbWordID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbWordID.ItemHeight = 30;
+            this.cbbWordID.Items.AddRange(new object[] {
+            "Bao ve",
+            "Phuc vu",
+            "Le Tan"});
+            this.cbbWordID.Location = new System.Drawing.Point(16, 481);
+            this.cbbWordID.Name = "cbbWordID";
+            this.cbbWordID.Size = new System.Drawing.Size(160, 36);
+            this.cbbWordID.StartIndex = 0;
+            this.cbbWordID.TabIndex = 43;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(13, 390);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(155, 22);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "Recruitment day";
             // 
             // txtRecruitmentday
             // 
@@ -279,15 +313,15 @@
             this.txtRecruitmentday.Size = new System.Drawing.Size(179, 36);
             this.txtRecruitmentday.TabIndex = 40;
             // 
-            // label8
+            // label7
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 390);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 22);
-            this.label8.TabIndex = 39;
-            this.label8.Text = "Recruitment day";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(208, 390);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 22);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Number of shifts";
             // 
             // txtNumberShifts
             // 
@@ -316,6 +350,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(403, 542);
+            this.Controls.Add(this.lblWorkID);
+            this.Controls.Add(this.cbbWordID);
             this.Controls.Add(this.txtNumberShifts);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtRecruitmentday);
@@ -356,9 +392,11 @@
         public Guna.UI2.WinForms.Guna2Button btnAddEmployee;
         public Guna.UI2.WinForms.Guna2ComboBox cbSex;
         public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label7;
-        public Guna.UI2.WinForms.Guna2TextBox txtRecruitmentday;
+        public System.Windows.Forms.Label lblWorkID;
+        public Guna.UI2.WinForms.Guna2ComboBox cbbWordID;
         public System.Windows.Forms.Label label8;
+        public Guna.UI2.WinForms.Guna2TextBox txtRecruitmentday;
+        public System.Windows.Forms.Label label7;
         public Guna.UI2.WinForms.Guna2TextBox txtNumberShifts;
     }
 }

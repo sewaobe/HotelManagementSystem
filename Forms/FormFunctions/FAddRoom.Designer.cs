@@ -48,6 +48,7 @@
             this.label1.Size = new System.Drawing.Size(112, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Room Type";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cbType
             // 
@@ -70,6 +71,7 @@
             this.cbType.Size = new System.Drawing.Size(177, 36);
             this.cbType.StartIndex = 0;
             this.cbType.TabIndex = 1;
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // txtID
             // 
@@ -91,6 +93,7 @@
             this.txtID.SelectedText = "";
             this.txtID.Size = new System.Drawing.Size(160, 36);
             this.txtID.TabIndex = 2;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // btnAddRoom
             // 
@@ -106,6 +109,7 @@
             this.btnAddRoom.Size = new System.Drawing.Size(180, 45);
             this.btnAddRoom.TabIndex = 3;
             this.btnAddRoom.Text = "Add Room";
+            this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // label2
             // 
@@ -116,6 +120,7 @@
             this.label2.Size = new System.Drawing.Size(86, 22);
             this.label2.TabIndex = 4;
             this.label2.Text = "Room ID";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -126,6 +131,7 @@
             this.label3.Size = new System.Drawing.Size(168, 22);
             this.label3.TabIndex = 5;
             this.label3.Text = "Room Description";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtRoomDes
             // 
@@ -147,6 +153,7 @@
             this.txtRoomDes.SelectedText = "";
             this.txtRoomDes.Size = new System.Drawing.Size(378, 159);
             this.txtRoomDes.TabIndex = 6;
+            this.txtRoomDes.TextChanged += new System.EventHandler(this.txtRoomDes_TextChanged);
             // 
             // label4
             // 
@@ -157,6 +164,7 @@
             this.label4.Size = new System.Drawing.Size(109, 22);
             this.label4.TabIndex = 7;
             this.label4.Text = "Room Rate";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtRoomRate
             // 
@@ -178,6 +186,7 @@
             this.txtRoomRate.SelectedText = "";
             this.txtRoomRate.Size = new System.Drawing.Size(378, 36);
             this.txtRoomRate.TabIndex = 8;
+            this.txtRoomRate.TextChanged += new System.EventHandler(this.txtRoomRate_TextChanged);
             // 
             // FAddRoom
             // 
@@ -197,6 +206,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FAddRoom";
             this.Text = "FAddRoom";
+            this.Load += new System.EventHandler(this.FAddRoom_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
