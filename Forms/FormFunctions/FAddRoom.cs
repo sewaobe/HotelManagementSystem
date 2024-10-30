@@ -24,7 +24,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC ThemPhong  @LoaiPhong, @TrangThai, @GiaPhong, @MoTa", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("ThemPhong", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = cbType.Text;
             cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = "Empty";
@@ -44,7 +44,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnEditRoom_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC ChinhSuaPhong @MaPhong, @LoaiPhong, @TrangThai, @GiaPhong, @MoTa", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("ChinhSuaPhong", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = txtID.Text;
             cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = cbType.Text;
@@ -70,7 +70,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phong này không?", "Remove room", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("EXEC XoaPhong @MaPhong", db.sqlConn);
+                    SqlCommand cmd = new SqlCommand("XoaPhong", db.getConnection);
                     cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = txtID.Text;
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() == -1)

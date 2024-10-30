@@ -23,7 +23,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddBill_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC proc_InsertNewBill  @MaKH, @MaNV, @Ngay, @PhuongThuc, @TriGiaHD, @TrangThai", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("EXEC proc_InsertNewBill  @MaKH, @MaNV, @Ngay, @PhuongThuc, @TriGiaHD, @TrangThai", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaKH", SqlDbType.Int).Value = txtGuestID.Text;
             cmd.Parameters.Add("@MaNV", SqlDbType.Int).Value = txtEmployeeID.Text;

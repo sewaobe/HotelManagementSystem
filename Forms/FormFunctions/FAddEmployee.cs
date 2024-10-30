@@ -22,16 +22,16 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC AddEmployee @HoTenNV, @DiaChi, @SDT, @SoCa, @NgayTuyenDung, @NgaySinh, @GioiTinh, @MaCV", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("AddEmployee", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@HoTenNV", SqlDbType.NVarChar).Value = txtName.Text;
             cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = txtAddress.Text;
             cmd.Parameters.Add("@SDT", SqlDbType.VarChar).Value = txtPhone.Text;
             cmd.Parameters.Add("@SoCa", SqlDbType.VarChar).Value = txtNumberShifts.Text;
-            cmd.Parameters.Add("@NgayTuyenDung", SqlDbType.VarChar).Value = txtRecruitmentday.Text;
-            cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = txtBirthday.Text;
+            cmd.Parameters.Add("@NgayTuyenDung", SqlDbType.Date).Value = DateTime.Now;
+            cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = DateTime.Now;
             cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar).Value = cbSex.Text;
-            cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = cbbWordID.Text;
+            cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = 1;
             if (cmd.ExecuteNonQuery() > 0)
             {
                 MessageBox.Show("Thêm thành công!", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -47,7 +47,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC UpdateEmployee @MaNV, @HoTenNV, @DiaChi, @SDT, @SoCa, @NgayTuyenDung, @NgaySinh, @GioiTinh, @MaCV", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("UpdateEmployee", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaNV", SqlDbType.Int, 10).Value = txtID.Text;
             cmd.Parameters.Add("@HoTenNV", SqlDbType.NVarChar).Value = txtName.Text;
@@ -77,7 +77,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhan vien này không?", "Remove employee", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("EXEC DeleteEmployee @MaNV", db.sqlConn);
+                    SqlCommand cmd = new SqlCommand("DeleteEmployee", db.getConnection);
                     cmd.Parameters.Add("@MaNV", SqlDbType.Int, 10).Value = txtID.Text;
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() == -1)

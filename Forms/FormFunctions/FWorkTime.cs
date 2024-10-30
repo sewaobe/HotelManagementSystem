@@ -24,7 +24,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         {
            
                 db.openConnection();
-                SqlCommand cmd = new SqlCommand("EXEC PhanCaLamViec @GioBatDau, @GioKetThuc, @NgayLam", db.sqlConn);
+                SqlCommand cmd = new SqlCommand("PhanCaLamViec", db.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@GioBatDau", SqlDbType.Time).Value = txtWorkStartHour.Text;
                 cmd.Parameters.Add("@GioKetThuc", SqlDbType.Time).Value = txtWorkEndHour.Text;
@@ -46,7 +46,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnUpdateWorkTime_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC SuaCaLamViec @MaCa, @GioBatDau, @GioKetThuc, @NgayLam", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SuaCaLamViec", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaCa", SqlDbType.Int).Value = txtWorkID.Text;
             cmd.Parameters.Add("@GioBatDau", SqlDbType.Time).Value = txtWorkStartHour.Text;
@@ -67,7 +67,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnDeleteWorkTime_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC XoaCaLamViec @MaCa", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("XoaCaLamViec", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaCa", SqlDbType.Int).Value = txtWorkID.Text;
             if (cmd.ExecuteNonQuery() > 0)

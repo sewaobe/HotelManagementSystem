@@ -12,19 +12,20 @@ namespace HotelManagementSystemProject
 {
     public class DBConnection
     {
-        private string strConn = @"Data Source=LAPTOP-BLCPPCND;Initial Catalog=QuanLyKhachSan;Integrated Security=True";
-        public SqlConnection sqlConn = null;
+        public SqlConnection sqlConn = new SqlConnection(@"Data Source=LAPTOP-BLCPPCND;Initial Catalog=QuanLyKhachSan;Integrated Security=True");
         public DBConnection() { }
+        public SqlConnection getConnection
+        {
+            get
+            {
+                return sqlConn;
+            }
+        }
         public void openConnection()
         {
             try
             {
-                if (sqlConn == null)
-                {
-
-                    sqlConn = new SqlConnection(strConn);
-
-                }
+                
                 if (sqlConn.State == System.Data.ConnectionState.Closed)
                 {
                     {

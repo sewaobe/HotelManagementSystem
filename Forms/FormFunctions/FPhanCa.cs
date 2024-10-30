@@ -23,7 +23,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddPhanCa_Click(object sender, EventArgs e)
         {
                 db.openConnection();
-                SqlCommand cmd = new SqlCommand("EXEC ThemCaLamViec @MaCa, @MaNV", db.sqlConn);
+                SqlCommand cmd = new SqlCommand("ThemCaLamViec", db.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaCa", SqlDbType.Int).Value = txtWorkID.Text;
                 cmd.Parameters.Add("@MaNV", SqlDbType.Int).Value = txtWorkTimeID.Text;

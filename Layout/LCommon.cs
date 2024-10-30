@@ -89,7 +89,7 @@ namespace HotelManagementSystemProject.Layout
         private DataTable getAllEmployee()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewEmployee", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewEmployee", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -99,7 +99,7 @@ namespace HotelManagementSystemProject.Layout
         private DataTable getAllFood()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewService", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewService", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -109,7 +109,7 @@ namespace HotelManagementSystemProject.Layout
         private DataTable getAllGuest()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoKhachHang", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoKhachHang", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -119,7 +119,7 @@ namespace HotelManagementSystemProject.Layout
         private DataTable getAllPhong()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoPhong", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoPhong", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -129,7 +129,7 @@ namespace HotelManagementSystemProject.Layout
         private DataTable getAllPhanCa()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM CaLamViecCuaNhanVien", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM CaLamViecCuaNhanVien", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);

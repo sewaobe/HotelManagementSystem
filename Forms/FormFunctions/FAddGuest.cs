@@ -22,7 +22,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC ThemKhachHang @HoTenKH, @DiaChi, @SoDienThoai, @Email, @GioiTinh", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("ThemKhachHang", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
             cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = txtAddress.Text;
@@ -43,7 +43,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnEditGuest_Click(object sender, EventArgs e)
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("EXEC ChinhSuaKhachHang @MaKH, @HoTenKH, @DiaChi, @SoDienThoai, @Email, @GioiTinh", db.sqlConn);
+            SqlCommand cmd = new SqlCommand("ChinhSuaKhachHang", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
             cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
@@ -70,7 +70,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này không?", "Remove guest", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("EXEC XoaKhachHang @MaKH", db.sqlConn);
+                    SqlCommand cmd = new SqlCommand("XoaKhachHang", db.getConnection);
                     cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() == -1)
