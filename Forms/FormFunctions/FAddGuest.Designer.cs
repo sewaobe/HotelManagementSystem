@@ -63,6 +63,7 @@
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(378, 36);
             this.txtPhone.TabIndex = 17;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // label4
             // 
@@ -73,6 +74,7 @@
             this.label4.Size = new System.Drawing.Size(126, 22);
             this.label4.TabIndex = 16;
             this.label4.Text = "Guest Phone";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -83,6 +85,7 @@
             this.label3.Size = new System.Drawing.Size(142, 22);
             this.label3.TabIndex = 14;
             this.label3.Text = "Guest Address";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -93,6 +96,7 @@
             this.label2.Size = new System.Drawing.Size(88, 22);
             this.label2.TabIndex = 13;
             this.label2.Text = "Guest ID";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnAddGuest
             // 
@@ -108,6 +112,7 @@
             this.btnAddGuest.Size = new System.Drawing.Size(180, 45);
             this.btnAddGuest.TabIndex = 12;
             this.btnAddGuest.Text = "Add Guest";
+            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
             // 
             // cbSex
             // 
@@ -129,6 +134,7 @@
             this.cbSex.Size = new System.Drawing.Size(160, 36);
             this.cbSex.StartIndex = 0;
             this.cbSex.TabIndex = 10;
+            this.cbSex.SelectedIndexChanged += new System.EventHandler(this.cbSex_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -139,6 +145,7 @@
             this.label1.Size = new System.Drawing.Size(120, 22);
             this.label1.TabIndex = 9;
             this.label1.Text = "Guest Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label5
             // 
@@ -149,6 +156,7 @@
             this.label5.Size = new System.Drawing.Size(103, 22);
             this.label5.TabIndex = 20;
             this.label5.Text = "Guest Sex";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtID
             // 
@@ -170,6 +178,7 @@
             this.txtID.SelectedText = "";
             this.txtID.Size = new System.Drawing.Size(179, 36);
             this.txtID.TabIndex = 19;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // txtName
             // 
@@ -191,6 +200,7 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(374, 36);
             this.txtName.TabIndex = 21;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtAddress
             // 
@@ -212,6 +222,7 @@
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(374, 36);
             this.txtAddress.TabIndex = 22;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // txtEmail
             // 
@@ -233,6 +244,7 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(374, 36);
             this.txtEmail.TabIndex = 24;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label6
             // 
@@ -243,6 +255,7 @@
             this.label6.Size = new System.Drawing.Size(118, 22);
             this.label6.TabIndex = 23;
             this.label6.Text = "Guest Email";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // FAddGuest
             // 
@@ -266,6 +279,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FAddGuest";
             this.Text = "FAddGuest";
+            this.Load += new System.EventHandler(this.FAddGuest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

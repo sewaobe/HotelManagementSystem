@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace HotelManagementSystemProject.Layout
 {
     public partial class LCommon : Form
     {
+        DBConnection db = new DBConnection();
         private void container(object form)
         {
             if (panelAddObject.Controls.Count > 0) { panelAddObject.Controls.Clear(); }
@@ -45,16 +47,20 @@ namespace HotelManagementSystemProject.Layout
                 case "Rooms":
                     lblNameObject.Text = "Rooms";
                     lblAddObject.Text = "Add Room";
+                    dtgvObject.DataSource = getAllPhong();
                     container(new FAddRoom());
                     break;
                 case "Guests":
                     lblNameObject.Text = "Guests";
                     lblAddObject.Text = "Add Guest";
+                    dtgvObject.DataSource = getAllGuest();
+
                     container(new FAddGuest());
                     break;
                 case "Employee":
                     lblNameObject.Text = "Employee";
                     lblAddObject.Text = "Add Employee";
+                    dtgvObject.DataSource = getAllEmployee();
                     container(new FAddEmployee());
                     break;
                 case "Reservation":
@@ -67,6 +73,7 @@ namespace HotelManagementSystemProject.Layout
                 case "Restaurant":
                     lblNameObject.Text = "Food List";
                     lblAddObject.Text = "Add Food";
+                    dtgvObject.DataSource = getAllFood();
                     container(new FAddFood());
                     break;
                 case "Bills History":
@@ -78,6 +85,56 @@ namespace HotelManagementSystemProject.Layout
                     break;
             }
         }
-       
+
+        private DataTable getAllEmployee()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewEmployee", db.sqlConn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable getAllFood()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewService", db.sqlConn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable getAllGuest()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoKhachHang", db.sqlConn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable getAllPhong()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoPhong", db.sqlConn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable getAllPhanCa()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM CaLamViecCuaNhanVien", db.sqlConn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
     }
 }

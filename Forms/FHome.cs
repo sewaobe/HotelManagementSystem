@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace HotelManagementSystemProject.Forms
 {
     public partial class FHome : Form
     {
+        DBConnection db = new DBConnection();
+
         public FHome()
         {
             InitializeComponent();
@@ -87,6 +90,60 @@ namespace HotelManagementSystemProject.Forms
         {
             container(new LCommon("Bills History"));
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private DataTable searchService()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("EXEC SearchService @Index", db.sqlConn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Index", SqlDbType.NChar, 10).Value = txtSearch.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable searchEmployee()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("EXEC SearchEmployee @Index", db.sqlConn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Index", SqlDbType.NChar, 10).Value = txtSearch.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable searchGuest()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("EXEC TimKiemKhachHang @TimKiem", db.sqlConn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@TimKiem", SqlDbType.Int, 10).Value = txtSearch.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable searchRoom()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("EXEC HienThiPhong @MaPhong", db.sqlConn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = txtSearch.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
         }
     }
 }

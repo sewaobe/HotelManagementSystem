@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Forms\FHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +89,29 @@
     <Compile Include="Forms\FormFunctions\FAddRoom.Designer.cs">
       <DependentUpon>FAddRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormFunctions\FAddWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddWork.Designer.cs">
+      <DependentUpon>FAddWork.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormFunctions\FBillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormFunctions\FBillDetail.Designer.cs">
       <DependentUpon>FBillDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FPhanCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FPhanCa.Designer.cs">
+      <DependentUpon>FPhanCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FWorkTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FWorkTime.Designer.cs">
+      <DependentUpon>FWorkTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\LCommon.cs">
       <SubType>Form</SubType>
@@ -124,8 +143,17 @@
     <EmbeddedResource Include="Forms\FormFunctions\FAddRoom.resx">
       <DependentUpon>FAddRoom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddWork.resx">
+      <DependentUpon>FAddWork.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFunctions\FBillDetail.resx">
       <DependentUpon>FBillDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FPhanCa.resx">
+      <DependentUpon>FPhanCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FWorkTime.resx">
+      <DependentUpon>FWorkTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\LCommon.resx">
       <DependentUpon>LCommon.cs</DependentUpon>
