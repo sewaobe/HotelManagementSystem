@@ -54,7 +54,6 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Guests";
                     lblAddObject.Text = "Add Guest";
                     dtgvObject.DataSource = getAllGuest();
-
                     container(new FAddGuest());
                     break;
                 case "Employee":
@@ -65,10 +64,11 @@ namespace HotelManagementSystemProject.Layout
                     break;
                 case "Reservation":
                     lblNameObject.Text = "Reservation";
-                    lblAddObject.Text = "Guest Detail";
-                    FAddGuest fAddGuest = new FAddGuest();
-                    fAddGuest.btnAddGuest.Text = "Procced";
-                    container(fAddGuest);
+                    lblAddObject.Text = "Re";
+                    container(new FAddReservation());
+/*                    dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
+ *                    
+*/
                     break;
                 case "Restaurant":
                     lblNameObject.Text = "Food List";
@@ -76,10 +76,44 @@ namespace HotelManagementSystemProject.Layout
                     dtgvObject.DataSource = getAllFood();
                     container(new FAddFood());
                     break;
+                case "Category":
+                    lblNameObject.Text = "Category List";
+                    lblAddObject.Text = "Add Category";
+                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
+ *                    
+*/
+                    container(new FAddCategory());
+                    break;
                 case "Bills History":
                     lblNameObject.Text = "Bills History";
                     lblAddObject.Text = "Detail Bill";
+                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
+ *                    
+*/
                     container(new FBillDetail());
+                    break;
+                case "Works":
+                    lblNameObject.Text = "Works";
+                    lblAddObject.Text = "Add Work";
+                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
+     *                    
+    */
+                    container(new FAddWork());
+                    break;
+                case "Work Time":
+                    lblNameObject.Text = "Work Time";
+                    lblAddObject.Text = "Add Work Time";
+                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
+ *                    
+*/
+                    container(new FWorkTime());
+                    break;
+                case "Bill":
+                    lblNameObject.Text = "Bills";
+                    lblAddObject.Text = "Add bill";
+                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
+ *                    
+*/
                     break;
                 default:
                     break;

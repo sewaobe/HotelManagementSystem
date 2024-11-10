@@ -48,7 +48,6 @@ C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemP
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FAddRoom.resources
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FAddWork.resources
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FBillDetail.resources
-C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FPhanCa.resources
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FWorkTime.resources
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Layout.LCommon.resources
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Layout.LHome.resources
@@ -58,3 +57,6 @@ C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemP
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.csproj.CopyComplete
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.exe
 C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.pdb
+C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FBillService.resources
+C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FAddCategory.resources
+C:\Users\bao\source\repos\HotelManagementSystem\obj\Debug\HotelManagementSystemProject.Forms.FormFunctions.FAddReservation.resources
