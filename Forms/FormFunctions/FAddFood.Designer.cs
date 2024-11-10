@@ -173,6 +173,7 @@
             this.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtID.Enabled = false;
             this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -239,8 +240,7 @@
             this.cbbServiceStatus.ItemHeight = 30;
             this.cbbServiceStatus.Items.AddRange(new object[] {
             "Available",
-            "Empty",
-            "Remove"});
+            "Empty"});
             this.cbbServiceStatus.Location = new System.Drawing.Point(230, 49);
             this.cbbServiceStatus.Name = "cbbServiceStatus";
             this.cbbServiceStatus.Size = new System.Drawing.Size(165, 36);
@@ -268,6 +268,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FAddFood";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FAddFood";
             this.Load += new System.EventHandler(this.FAddFood_Load);
             this.ResumeLayout(false);

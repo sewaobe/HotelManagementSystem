@@ -11,18 +11,18 @@ using System.Windows.Forms;
 
 namespace HotelManagementSystemProject.Forms.FormFunctions
 {
-    public partial class FPhanCa : Form
+    public partial class FBillService : Form
     {
         DBConnection db = new DBConnection();
 
-        public FPhanCa()
+        public FBillService()
         {
             InitializeComponent();
         }
   
         private void btnAddPhanCa_Click(object sender, EventArgs e)
         {
-                db.openConnection();
+             /*   db.openConnection();
                 SqlCommand cmd = new SqlCommand("ThemCaLamViec", db.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaCa", SqlDbType.Int).Value = txtWorkID.Text;
@@ -37,7 +37,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 {
                     MessageBox.Show("Them thất bại", "Add Phan Ca", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     db.closeConnection();
-                }
+                }*/
         }
     }
 }

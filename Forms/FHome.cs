@@ -145,5 +145,25 @@ namespace HotelManagementSystemProject.Forms
             db.closeConnection();
             return dataTable;
         }
+
+        private void btnWork_Click(object sender, EventArgs e)
+        {
+            container(new LCommon("Work Time"));
+        }
+
+        private void btnWorks_Click(object sender, EventArgs e)
+        {
+           container(new LCommon("Works"));
+        }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            container(new LCommon("Bill"));
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            container(new LCommon("Category"));
+        }
     }
 }

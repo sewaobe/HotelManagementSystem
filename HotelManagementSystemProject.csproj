@@ -65,6 +65,12 @@
     <Compile Include="Forms\FLogin.Designer.cs">
       <DependentUpon>FLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormFunctions\FAddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddCategory.Designer.cs">
+      <DependentUpon>FAddCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormFunctions\FAddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     </Compile>
     <Compile Include="Forms\FormFunctions\FAddGuest.Designer.cs">
       <DependentUpon>FAddGuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFunctions\FAddReservation.Designer.cs">
+      <DependentUpon>FAddReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormFunctions\FAddRoom.cs">
       <SubType>Form</SubType>
@@ -101,11 +113,11 @@
     <Compile Include="Forms\FormFunctions\FBillDetail.Designer.cs">
       <DependentUpon>FBillDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormFunctions\FPhanCa.cs">
+    <Compile Include="Forms\FormFunctions\FBillService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormFunctions\FPhanCa.Designer.cs">
-      <DependentUpon>FPhanCa.cs</DependentUpon>
+    <Compile Include="Forms\FormFunctions\FBillService.Designer.cs">
+      <DependentUpon>FBillService.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormFunctions\FWorkTime.cs">
       <SubType>Form</SubType>
@@ -130,6 +142,9 @@
     <EmbeddedResource Include="Forms\FHome.resx">
       <DependentUpon>FHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddCategory.resx">
+      <DependentUpon>FAddCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFunctions\FAddEmployee.resx">
       <DependentUpon>FAddEmployee.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -140,6 +155,9 @@
     <EmbeddedResource Include="Forms\FormFunctions\FAddGuest.resx">
       <DependentUpon>FAddGuest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFunctions\FAddReservation.resx">
+      <DependentUpon>FAddReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFunctions\FAddRoom.resx">
       <DependentUpon>FAddRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,8 +167,8 @@
     <EmbeddedResource Include="Forms\FormFunctions\FBillDetail.resx">
       <DependentUpon>FBillDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormFunctions\FPhanCa.resx">
-      <DependentUpon>FPhanCa.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormFunctions\FBillService.resx">
+      <DependentUpon>FBillService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFunctions\FWorkTime.resx">
       <DependentUpon>FWorkTime.cs</DependentUpon>
