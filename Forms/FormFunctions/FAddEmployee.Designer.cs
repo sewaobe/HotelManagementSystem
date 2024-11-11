@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBirthday = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -44,31 +43,15 @@
             this.lblWorkID = new System.Windows.Forms.Label();
             this.cbbWordID = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtRecruitmentday = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNumberShifts = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtRecruitmentday = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtBirthday = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dtpkBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpkRecDay = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnRemoveEmployee = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
-            // 
-            // txtBirthday
-            // 
-            this.txtBirthday.BorderRadius = 5;
-            this.txtBirthday.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBirthday.DefaultText = "";
-            this.txtBirthday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBirthday.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBirthday.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBirthday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Location = new System.Drawing.Point(16, 267);
-            this.txtBirthday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.PasswordChar = '\0';
-            this.txtBirthday.PlaceholderText = "";
-            this.txtBirthday.SelectedText = "";
-            this.txtBirthday.Size = new System.Drawing.Size(374, 36);
-            this.txtBirthday.TabIndex = 37;
             // 
             // label6
             // 
@@ -214,7 +197,7 @@
             this.btnAddEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployee.ForeColor = System.Drawing.Color.Black;
-            this.btnAddEmployee.Location = new System.Drawing.Point(205, 473);
+            this.btnAddEmployee.Location = new System.Drawing.Point(205, 554);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(186, 45);
             this.btnAddEmployee.TabIndex = 27;
@@ -268,6 +251,7 @@
             this.cbbWordID.BorderRadius = 5;
             this.cbbWordID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbbWordID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbWordID.DropDownWidth = 200;
             this.cbbWordID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbWordID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbWordID.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -279,9 +263,10 @@
             "Le Tan"});
             this.cbbWordID.Location = new System.Drawing.Point(16, 481);
             this.cbbWordID.Name = "cbbWordID";
-            this.cbbWordID.Size = new System.Drawing.Size(160, 36);
+            this.cbbWordID.Size = new System.Drawing.Size(194, 36);
             this.cbbWordID.StartIndex = 0;
             this.cbbWordID.TabIndex = 43;
+            this.cbbWordID.UseWaitCursor = true;
             // 
             // label8
             // 
@@ -292,6 +277,37 @@
             this.label8.Size = new System.Drawing.Size(155, 22);
             this.label8.TabIndex = 39;
             this.label8.Text = "Recruitment day";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(226, 454);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 22);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Number of shifts";
+            // 
+            // txtNumberShifts
+            // 
+            this.txtNumberShifts.BorderRadius = 5;
+            this.txtNumberShifts.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNumberShifts.DefaultText = "";
+            this.txtNumberShifts.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNumberShifts.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNumberShifts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumberShifts.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumberShifts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumberShifts.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNumberShifts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumberShifts.Location = new System.Drawing.Point(230, 481);
+            this.txtNumberShifts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNumberShifts.Name = "txtNumberShifts";
+            this.txtNumberShifts.PasswordChar = '\0';
+            this.txtNumberShifts.PlaceholderText = "";
+            this.txtNumberShifts.SelectedText = "";
+            this.txtNumberShifts.Size = new System.Drawing.Size(151, 36);
+            this.txtNumberShifts.TabIndex = 42;
             // 
             // txtRecruitmentday
             // 
@@ -311,46 +327,103 @@
             this.txtRecruitmentday.PasswordChar = '\0';
             this.txtRecruitmentday.PlaceholderText = "";
             this.txtRecruitmentday.SelectedText = "";
-            this.txtRecruitmentday.Size = new System.Drawing.Size(179, 36);
+            this.txtRecruitmentday.Size = new System.Drawing.Size(334, 36);
             this.txtRecruitmentday.TabIndex = 40;
+            this.txtRecruitmentday.Leave += new System.EventHandler(this.txtRecruitmentday_Leave);
             // 
-            // label7
+            // txtBirthday
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(208, 390);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 22);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Number of shifts";
+            this.txtBirthday.BorderRadius = 5;
+            this.txtBirthday.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBirthday.DefaultText = "";
+            this.txtBirthday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBirthday.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBirthday.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBirthday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBirthday.Location = new System.Drawing.Point(16, 267);
+            this.txtBirthday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBirthday.Name = "txtBirthday";
+            this.txtBirthday.PasswordChar = '\0';
+            this.txtBirthday.PlaceholderText = "";
+            this.txtBirthday.SelectedText = "";
+            this.txtBirthday.Size = new System.Drawing.Size(335, 36);
+            this.txtBirthday.TabIndex = 37;
+            this.txtBirthday.Leave += new System.EventHandler(this.txtBirthday_Leave);
             // 
-            // txtNumberShifts
+            // dtpkBirthday
             // 
-            this.txtNumberShifts.BorderRadius = 5;
-            this.txtNumberShifts.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNumberShifts.DefaultText = "";
-            this.txtNumberShifts.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNumberShifts.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNumberShifts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNumberShifts.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNumberShifts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumberShifts.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNumberShifts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumberShifts.Location = new System.Drawing.Point(212, 417);
-            this.txtNumberShifts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNumberShifts.Name = "txtNumberShifts";
-            this.txtNumberShifts.PasswordChar = '\0';
-            this.txtNumberShifts.PlaceholderText = "";
-            this.txtNumberShifts.SelectedText = "";
-            this.txtNumberShifts.Size = new System.Drawing.Size(179, 36);
-            this.txtNumberShifts.TabIndex = 42;
+            this.dtpkBirthday.Checked = true;
+            this.dtpkBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpkBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpkBirthday.Location = new System.Drawing.Point(358, 267);
+            this.dtpkBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpkBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpkBirthday.Name = "dtpkBirthday";
+            this.dtpkBirthday.Size = new System.Drawing.Size(32, 36);
+            this.dtpkBirthday.TabIndex = 45;
+            this.dtpkBirthday.Value = new System.DateTime(2024, 11, 11, 13, 58, 38, 664);
+            this.dtpkBirthday.ValueChanged += new System.EventHandler(this.dtpkBirthday_ValueChanged);
+            // 
+            // dtpkRecDay
+            // 
+            this.dtpkRecDay.Checked = true;
+            this.dtpkRecDay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpkRecDay.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpkRecDay.Location = new System.Drawing.Point(353, 415);
+            this.dtpkRecDay.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpkRecDay.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpkRecDay.Name = "dtpkRecDay";
+            this.dtpkRecDay.Size = new System.Drawing.Size(37, 36);
+            this.dtpkRecDay.TabIndex = 46;
+            this.dtpkRecDay.Value = new System.DateTime(2024, 11, 11, 13, 58, 38, 664);
+            this.dtpkRecDay.ValueChanged += new System.EventHandler(this.dtpkRecDay_ValueChanged);
+            // 
+            // btnRemoveEmployee
+            // 
+            this.btnRemoveEmployee.BorderRadius = 5;
+            this.btnRemoveEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemoveEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemoveEmployee.FillColor = System.Drawing.Color.Red;
+            this.btnRemoveEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveEmployee.ForeColor = System.Drawing.Color.Black;
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(8, 554);
+            this.btnRemoveEmployee.Name = "btnRemoveEmployee";
+            this.btnRemoveEmployee.Size = new System.Drawing.Size(187, 45);
+            this.btnRemoveEmployee.TabIndex = 47;
+            this.btnRemoveEmployee.Text = "Delete Employee";
+            this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
+            // 
+            // btnEditEmployee
+            // 
+            this.btnEditEmployee.BorderRadius = 10;
+            this.btnEditEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditEmployee.ForeColor = System.Drawing.Color.Black;
+            this.btnEditEmployee.Location = new System.Drawing.Point(205, 554);
+            this.btnEditEmployee.Name = "btnEditEmployee";
+            this.btnEditEmployee.Size = new System.Drawing.Size(186, 45);
+            this.btnEditEmployee.TabIndex = 48;
+            this.btnEditEmployee.Text = "Save Employee";
+            this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
             // 
             // FAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(403, 542);
+            this.ClientSize = new System.Drawing.Size(403, 623);
+            this.Controls.Add(this.btnEditEmployee);
+            this.Controls.Add(this.btnRemoveEmployee);
+            this.Controls.Add(this.dtpkRecDay);
+            this.Controls.Add(this.dtpkBirthday);
             this.Controls.Add(this.lblWorkID);
             this.Controls.Add(this.cbbWordID);
             this.Controls.Add(this.txtNumberShifts);
@@ -379,8 +452,6 @@
         }
 
         #endregion
-
-        public Guna.UI2.WinForms.Guna2TextBox txtBirthday;
         public System.Windows.Forms.Label label6;
         public Guna.UI2.WinForms.Guna2TextBox txtAddress;
         public Guna.UI2.WinForms.Guna2TextBox txtName;
@@ -396,8 +467,14 @@
         public System.Windows.Forms.Label lblWorkID;
         public Guna.UI2.WinForms.Guna2ComboBox cbbWordID;
         public System.Windows.Forms.Label label8;
-        public Guna.UI2.WinForms.Guna2TextBox txtRecruitmentday;
         public System.Windows.Forms.Label label7;
         public Guna.UI2.WinForms.Guna2TextBox txtNumberShifts;
+        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        public Guna.UI2.WinForms.Guna2TextBox txtRecruitmentday;
+        public Guna.UI2.WinForms.Guna2TextBox txtBirthday;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpkBirthday;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpkRecDay;
+        private Guna.UI2.WinForms.Guna2Button btnRemoveEmployee;
+        public Guna.UI2.WinForms.Guna2Button btnEditEmployee;
     }
 }

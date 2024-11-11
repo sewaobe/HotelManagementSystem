@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace HotelManagementSystemProject.Layout
 {
     public partial class LCommon : Form
     {
         DBConnection db = new DBConnection();
+        FAddEmployee fAddEmployee = new FAddEmployee();
         private void container(object form)
         {
             if (panelAddObject.Controls.Count > 0) { panelAddObject.Controls.Clear(); }
@@ -48,6 +50,7 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Rooms";
                     lblAddObject.Text = "Add Room";
                     dtgvObject.DataSource = getAllPhong();
+
                     container(new FAddRoom());
                     break;
                 case "Guests":
@@ -60,6 +63,8 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Employee";
                     lblAddObject.Text = "Add Employee";
                     dtgvObject.DataSource = getAllEmployee();
+                    dtgvObject.Columns["MaNV"].Visible = false;
+                    dtgvObject.Columns["MaCV"].Visible = false;
                     container(new FAddEmployee());
                     break;
                 case "Reservation":
@@ -170,5 +175,38 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
+
+        private void dtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            switch (lblNameObject.Text)
+            {
+                case "Employee":
+                    if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
+                    {
+                        // Reset form về trạng thái ban đầu
+                        fAddEmployee = new FAddEmployee(); // Tạo form mới
+                        lblAddObject.Text = "Add Employee";
+                        container(fAddEmployee);
+                        return;
+                    }
+                    else
+                    {
+                        fAddEmployee.EmployeeClicked(dtgvObject, e);
+                        lblAddObject.Text = "Save Employee";
+                        container(fAddEmployee);
+                        break;
+                    }
+
+
+               
+            }
+        }
+
+
     }
+
+
+
 }

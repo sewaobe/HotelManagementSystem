@@ -53,7 +53,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvObject.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgvObject.ColumnHeadersHeight = 4;
+            this.dtgvObject.ColumnHeadersHeight = 22;
             this.dtgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -83,7 +83,7 @@
             this.dtgvObject.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgvObject.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtgvObject.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgvObject.ThemeStyle.HeaderStyle.Height = 4;
+            this.dtgvObject.ThemeStyle.HeaderStyle.Height = 22;
             this.dtgvObject.ThemeStyle.ReadOnly = false;
             this.dtgvObject.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgvObject.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -92,6 +92,7 @@
             this.dtgvObject.ThemeStyle.RowsStyle.Height = 28;
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvObject_CellClick);
             // 
             // lblNameObject
             // 
@@ -167,7 +168,7 @@
             this.panelAddObject.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.panelAddObject.Location = new System.Drawing.Point(1174, 76);
             this.panelAddObject.Name = "panelAddObject";
-            this.panelAddObject.Size = new System.Drawing.Size(403, 542);
+            this.panelAddObject.Size = new System.Drawing.Size(403, 623);
             this.panelAddObject.TabIndex = 8;
             // 
             // LCommon
