@@ -55,6 +55,7 @@ namespace HotelManagementSystemProject.Forms
         {
             container(new LHome());
 
+
         }
 
         private void btnGuests_Click(object sender, EventArgs e)
@@ -164,6 +165,11 @@ namespace HotelManagementSystemProject.Forms
         private void btnCategory_Click(object sender, EventArgs e)
         {
             container(new LCommon("Category"));
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }
