@@ -12,8 +12,9 @@ namespace HotelManagementSystemProject
 {
     public class DBConnection
     {
-        public SqlConnection sqlConn = new SqlConnection(@"Data Source=LAPTOP-BLCPPCND;Initial Catalog=QuanLyKhachSan;Integrated Security=True");
+        public SqlConnection sqlConn = new SqlConnection(@"Data Source=Khanhne;Initial Catalog=QuanLyKhachSan;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
         public DBConnection() { }
+        
         public SqlConnection getConnection
         {
             get
