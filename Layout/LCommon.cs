@@ -14,6 +14,7 @@ namespace HotelManagementSystemProject.Layout
 {
     public partial class LCommon : Form
     {
+        FAddGuest fAddGuest = new FAddGuest();
         DBConnection db = new DBConnection();
         private void container(object form)
         {
@@ -41,7 +42,6 @@ namespace HotelManagementSystemProject.Layout
         public LCommon(string function)
         {
             InitializeComponent();
-
             switch (function)
             {
                 case "Rooms":
@@ -54,6 +54,7 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Guests";
                     lblAddObject.Text = "Add Guest";
                     dtgvObject.DataSource = getAllGuest();
+                    fAddGuest.LoadHeaderCustomer(dtgvObject);
                     container(new FAddGuest());
                     break;
                 case "Employee":
@@ -119,7 +120,7 @@ namespace HotelManagementSystemProject.Layout
                     break;
             }
         }
-
+        
         private DataTable getAllEmployee()
         {
             db.openConnection();
@@ -169,6 +170,24 @@ namespace HotelManagementSystemProject.Layout
             adapter.Fill(dataTable);
             db.closeConnection();
             return dataTable;
+        }
+
+
+        private void dtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
+            {
+                // Reset form về trạng thái ban đầu
+                fAddGuest = new FAddGuest(); // Tạo form mới
+                lblAddObject.Text = "Add Guest";
+                container(fAddGuest);
+                return;
+            }
+
+            // Xử lý click vào dòng dữ liệu
+            fAddGuest.CustomerClicked(dtgvObject, e);
+            lblAddObject.Text = "Save guest";
+            container(fAddGuest);
         }
     }
 }

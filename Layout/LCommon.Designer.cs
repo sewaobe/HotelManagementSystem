@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgvObject = new Guna.UI2.WinForms.Guna2DataGridView();
             this.lblNameObject = new System.Windows.Forms.Label();
             this.cbbType = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -42,34 +42,35 @@
             // 
             // dtgvObject
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.dtgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dtgvObject.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvObject.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvObject.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dtgvObject.ColumnHeadersHeight = 4;
             this.dtgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvObject.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvObject.DefaultCellStyle = dataGridViewCellStyle24;
             this.dtgvObject.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgvObject.Location = new System.Drawing.Point(30, 76);
+            this.dtgvObject.Location = new System.Drawing.Point(27, 61);
+            this.dtgvObject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvObject.Name = "dtgvObject";
             this.dtgvObject.RowHeadersVisible = false;
             this.dtgvObject.RowHeadersWidth = 62;
             this.dtgvObject.RowTemplate.Height = 28;
-            this.dtgvObject.Size = new System.Drawing.Size(1078, 810);
+            this.dtgvObject.Size = new System.Drawing.Size(958, 648);
             this.dtgvObject.TabIndex = 2;
             this.dtgvObject.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgvObject.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -92,14 +93,15 @@
             this.dtgvObject.ThemeStyle.RowsStyle.Height = 28;
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvObject_CellClick);
             // 
             // lblNameObject
             // 
             this.lblNameObject.AutoSize = true;
             this.lblNameObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameObject.Location = new System.Drawing.Point(25, 28);
+            this.lblNameObject.Location = new System.Drawing.Point(22, 22);
             this.lblNameObject.Name = "lblNameObject";
-            this.lblNameObject.Size = new System.Drawing.Size(188, 29);
+            this.lblNameObject.Size = new System.Drawing.Size(153, 25);
             this.lblNameObject.TabIndex = 3;
             this.lblNameObject.Text = "lblNameObject";
             // 
@@ -120,9 +122,10 @@
             "Double Bed",
             "Queen Bed",
             "Luxury King"});
-            this.cbbType.Location = new System.Drawing.Point(714, 21);
+            this.cbbType.Location = new System.Drawing.Point(635, 17);
+            this.cbbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbType.Name = "cbbType";
-            this.cbbType.Size = new System.Drawing.Size(179, 36);
+            this.cbbType.Size = new System.Drawing.Size(160, 36);
             this.cbbType.StartIndex = 0;
             this.cbbType.TabIndex = 5;
             // 
@@ -144,9 +147,10 @@
             "Available",
             "Reserved",
             "Occupied"});
-            this.cbbStatus.Location = new System.Drawing.Point(925, 21);
+            this.cbbStatus.Location = new System.Drawing.Point(822, 17);
+            this.cbbStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(183, 36);
+            this.cbbStatus.Size = new System.Drawing.Size(163, 36);
             this.cbbStatus.StartIndex = 0;
             this.cbbStatus.TabIndex = 6;
             // 
@@ -154,9 +158,9 @@
             // 
             this.lblAddObject.AutoSize = true;
             this.lblAddObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddObject.Location = new System.Drawing.Point(1169, 28);
+            this.lblAddObject.Location = new System.Drawing.Point(1039, 22);
             this.lblAddObject.Name = "lblAddObject";
-            this.lblAddObject.Size = new System.Drawing.Size(165, 29);
+            this.lblAddObject.Size = new System.Drawing.Size(136, 25);
             this.lblAddObject.TabIndex = 7;
             this.lblAddObject.Text = "lblAddObject";
             // 
@@ -165,17 +169,18 @@
             this.panelAddObject.BackColor = System.Drawing.Color.White;
             this.panelAddObject.BorderRadius = 20;
             this.panelAddObject.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.panelAddObject.Location = new System.Drawing.Point(1174, 76);
+            this.panelAddObject.Location = new System.Drawing.Point(1044, 61);
+            this.panelAddObject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelAddObject.Name = "panelAddObject";
-            this.panelAddObject.Size = new System.Drawing.Size(403, 542);
+            this.panelAddObject.Size = new System.Drawing.Size(358, 434);
             this.panelAddObject.TabIndex = 8;
             // 
             // LCommon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1608, 942);
+            this.ClientSize = new System.Drawing.Size(1429, 754);
             this.Controls.Add(this.panelAddObject);
             this.Controls.Add(this.lblAddObject);
             this.Controls.Add(this.cbbStatus);
@@ -183,6 +188,7 @@
             this.Controls.Add(this.lblNameObject);
             this.Controls.Add(this.dtgvObject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LCommon";
             this.Text = "LCommon";
             ((System.ComponentModel.ISupportInitialize)(this.dtgvObject)).EndInit();
