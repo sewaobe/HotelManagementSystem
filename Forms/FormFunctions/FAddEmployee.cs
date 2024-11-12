@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 cmd.Parameters.Add("@SDT", SqlDbType.VarChar).Value = txtPhone.Text;
                 cmd.Parameters.Add("@SoCa", SqlDbType.VarChar).Value = txtNumberShifts.Text;
                 cmd.Parameters.Add("@NgayTuyenDung", SqlDbType.Date).Value = dtpkRecDay.Value.Date;
-                cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = dtpkBirthday.Value.Date;
+                cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = dtpkBirthday.Value.Date;    
                 cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar).Value = cbSex.Text;
                 cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = cbbWordID.SelectedValue;
                 
@@ -69,17 +70,16 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             {
                 db.openConnection();
                 SqlCommand cmd = new SqlCommand("[UpdateEmployee]", db.getConnection);
-                int MaNV;
-
+                int MaNV;                
                 int.TryParse(txtID.Text, out MaNV);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaNV", SqlDbType.Int).Value = MaNV;
                 cmd.Parameters.Add("@HoTenNV", SqlDbType.NVarChar, 100).Value = txtName.Text;
                 cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar, 255).Value = txtAddress.Text;
                 cmd.Parameters.Add("@SDT", SqlDbType.VarChar, 20).Value = txtPhone.Text;
-                cmd.Parameters.Add("@SoCa", SqlDbType.Int).Value = int.Parse(txtNumberShifts.Text); 
-                cmd.Parameters.Add("@NgayTuyenDung", SqlDbType.Date).Value = dtpkRecDay.Value.Date;
-                cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = dtpkBirthday.Value.Date;
+                cmd.Parameters.Add("@SoCa", SqlDbType.Int).Value = int.Parse(txtNumberShifts.Text);
+                cmd.Parameters.Add("@NgayTuyenDung", SqlDbType.Date).Value = dtpkRecDay.Value.Date; ;
+                cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = dtpkBirthday.Value.Date; 
                 cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar, 10).Value = cbSex.Text;
                 cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = cbbWordID.SelectedValue;
 
@@ -198,22 +198,30 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             }
         }
 
-        public  void PaddingFAddEmployee(String MaNV, String HoTenNV, String DiaChi, String SDT, String SoCa, String GioiTinh, String NgaySinh, String NgayTuyenDung, String tenCV, String MaCV)
+        public void PaddingFAddEmployee(String MaNV, String HoTenNV, String DiaChi, String SDT, String SoCa, String GioiTinh, String NgaySinh, String NgayTuyenDung, String tenCV, String MaCV)
         {
             txtID.Text = MaNV;
             txtName.Text = HoTenNV;
             txtAddress.Text = DiaChi;
             txtPhone.Text = SDT;
             txtNumberShifts.Text = SoCa;
-            cbSex.Text =  GioiTinh;
+            cbSex.Text = GioiTinh;
             txtBirthday.Text = NgaySinh;
+
+            // Chuyển đổi Ngày sinh từ chuỗi và cài đặt định dạng hiển thị cho DateTimePicker
             dtpkBirthday.Value = DateTime.Parse(NgaySinh);
+            dtpkBirthday.CustomFormat = "dd/MM/yyyy"; // Định dạng ngày theo dd/MM/yyyy
+            dtpkBirthday.Format = DateTimePickerFormat.Custom;
+
             txtRecruitmentday.Text = NgayTuyenDung;
             dtpkRecDay.Value = DateTime.Parse(NgayTuyenDung);
+            dtpkRecDay.CustomFormat = "dd/MM/yyyy"; // Định dạng ngày theo dd/MM/yyyy
+            dtpkRecDay.Format = DateTimePickerFormat.Custom;
+
             cbbWordID.DisplayMember = tenCV;
             cbbWordID.SelectedValue = MaCV;
-
         }
+
 
         public void EmployeeClicked(DataGridView dataGridView, DataGridViewCellEventArgs e)
         {

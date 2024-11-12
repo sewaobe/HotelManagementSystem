@@ -17,6 +17,8 @@ namespace HotelManagementSystemProject.Layout
     {
         DBConnection db = new DBConnection();
         FAddEmployee fAddEmployee = new FAddEmployee();
+        FAddWork fAddWork = new FAddWork();
+        FWorkTime fWorkTime = new FWorkTime();
         private void container(object form)
         {
             if (panelAddObject.Controls.Count > 0) { panelAddObject.Controls.Clear(); }
@@ -100,17 +102,16 @@ namespace HotelManagementSystemProject.Layout
                 case "Works":
                     lblNameObject.Text = "Works";
                     lblAddObject.Text = "Add Work";
-                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
-     *                    
-    */
+                    dtgvObject.DataSource = getDataCV();
                     container(new FAddWork());
                     break;
                 case "Work Time":
                     lblNameObject.Text = "Work Time";
                     lblAddObject.Text = "Add Work Time";
-                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
- *                    
-*/
+                    dtgvObject.DataSource = getWorkTime();
+                    dtgvObject.Columns["MaNV"].Visible = false;
+                    dtgvObject.Columns["MaCV"].Visible = false;
+                    dtgvObject.Columns["TenCV"].Visible = false;
                     container(new FWorkTime());
                     break;
                 case "Bill":
@@ -175,6 +176,27 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
+        private DataTable getDataCV()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM LayDanhSachCongViec()", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+
+        private DataTable getWorkTime()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM GetWorktime()", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
 
         private void dtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -198,9 +220,43 @@ namespace HotelManagementSystemProject.Layout
                         container(fAddEmployee);
                         break;
                     }
+                case "Works":
+                    if (e.RowIndex < 0 || String.IsNullOrEmpty(dtgvObject.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                    {
+                        // Reset form về trạng thái ban đầu
+                        fAddWork = new FAddWork(); // Tạo form mới
+                        lblAddObject.Text = "Add Work";
+                        container(fAddWork);
+                        return;
+                    }
+                    else
+                    {
+                        fAddWork.WorkClicked(dtgvObject, e);
+                        lblAddObject.Text = "Save Work";
+                        container(fAddWork);
+                        break;
+                    }
+                case "Work Time":
+                    if (e.RowIndex < 0 || String.IsNullOrEmpty(dtgvObject.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                    {
+                        // Reset form về trạng thái ban đầu
+                        fWorkTime = new FWorkTime(); // Tạo form mới
+                        lblAddObject.Text = "Add Work Time";
+                        container(fWorkTime);
+                        return;
+                    }
+                    else
+                    {
+                        fWorkTime.WorkTimeClicked(dtgvObject, e);
+                        lblAddObject.Text = "Save Work Time"; 
+                        container(fWorkTime);
+                        break;
+                    }
 
 
-               
+
+
+
             }
         }
 
