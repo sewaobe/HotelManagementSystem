@@ -77,7 +77,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             string SoDienThoai = dtgvObject.Rows[e.RowIndex].Cells["SoDienThoai"].Value.ToString();
             string NgayNhanPhong = dtgvObject.Rows[e.RowIndex].Cells["NgayNhanPhong"].Value.ToString();
             string NgayTraPhong = dtgvObject.Rows[e.RowIndex].Cells["NgayTraPhong"].Value.ToString();
-            txtGuestID.Enabled = false;
 
             // Thiết lập thông tin trên form
             SetReservationInfo(MaKhachHang, MaPhong, TenKhachHang, SoDienThoai, NgayNhanPhong, NgayTraPhong);
@@ -194,7 +193,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             {
                 db.openConnection();
 
-                SqlCommand cmd = new SqlCommand("proc_ChinhSuaDatPhong", db.getConnection);
+                SqlCommand cmd = new SqlCommand("proc_suaChiTietHDP", db.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Pass parameters to the stored procedure
@@ -291,9 +290,10 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy đặt phòng này không?", "Remove reservation", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("proc_HuyDatPhong", db.getConnection);
+                    SqlCommand cmd = new SqlCommand("proc_xoaChiTietHDP", db.getConnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = cbRoomID.Text;
+                    MessageBox.Show(cbRoomID.Text);
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() > 0)
                     {

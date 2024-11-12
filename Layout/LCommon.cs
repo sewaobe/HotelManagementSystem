@@ -1,4 +1,5 @@
-﻿using HotelManagementSystemProject.Class;
+﻿using Guna.UI2.WinForms;
+using HotelManagementSystemProject.Class;
 using HotelManagementSystemProject.Forms.FormFunctions;
 using HotelManagementSystemProject.UC;
 using System;
@@ -48,6 +49,9 @@ namespace HotelManagementSystemProject.Layout
         public LCommon(string function)
         {
             InitializeComponent();
+
+            fBills.btnAddListService.Click += btnAddListService_Click;
+
             switch (function)
             {
                 case "Rooms":
@@ -86,7 +90,7 @@ namespace HotelManagementSystemProject.Layout
                     lblAddObject.Text = "Add Food";
                     flowDV.Visible = true;
                     dtgvObject.Visible = false;
-                    getAllFood();
+                    getAllFood(0);
                     container(fAddFood);
                     break;
                 case "Category":
@@ -127,7 +131,9 @@ namespace HotelManagementSystemProject.Layout
                     dtgvObject.DataSource = getAllBill();
                     dtgvObject.Columns["MaNV"].Visible = false;
                     dtgvObject.Columns["MaKH"].Visible = false;
-                    container(new FBills());
+
+                    container(fBills);
+                
                     break;
 
                 case "Add service list":
@@ -138,7 +144,27 @@ namespace HotelManagementSystemProject.Layout
                     break;
             }
         }
+        private void btnAddListService_Click(object sender, EventArgs e)
+        {
+            Guna2CircleButton guna2CircleButton = sender as Guna2CircleButton;
+            FBills f = guna2CircleButton.Parent as FBills;
+            if (!string.IsNullOrEmpty(f.txtGuestID.Text))
+            {
+                LCommon lCommon = new LCommon("Add service list");
+                lCommon.FormBorderStyle = FormBorderStyle.Sizable;
+                lCommon.ClientSize = new Size(1150, 600);
+                lCommon.flowDV.Visible = true;
+                lCommon.dtgvObject.Visible = false;
+                lCommon.getAllFood(1);
+                lCommon.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập thông tin khách hàng xài dịch vụ");
+            }
+           
 
+        }
         private void DtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -183,7 +209,7 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
-        private void getAllFood()
+        private void getAllFood(int check)
         {
             db.openConnection();
             SqlCommand cmd = new SqlCommand("SELECT * FROM View_Service", db.getConnection);
@@ -209,10 +235,11 @@ namespace HotelManagementSystemProject.Layout
             }
             foreach(DichVu dichVu in listDichVu)
             {
-                UCFood uc = new UCFood(dichVu);
+                UCFood uc = new UCFood(dichVu,check);
                 //panelAddObject.Controls.Clear();
                 //FAddFood form = new FAddFood();
                 uc.SetFormFood(fAddFood);
+                
                 //container(form);
                 flowDV.Controls.Add(uc);
             }    
@@ -311,6 +338,7 @@ namespace HotelManagementSystemProject.Layout
                     break; // Added the break to avoid f
 
                 case "Bills":
+
                     fBills.BillsClicked(dtgvObject, e);
                     container(fBills);
                     break;
@@ -320,6 +348,6 @@ namespace HotelManagementSystemProject.Layout
             }
         }
 
-       
+      
     }
 }

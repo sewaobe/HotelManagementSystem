@@ -23,7 +23,7 @@ namespace HotelManagementSystemProject.UC
         {
             InitializeComponent();
         }
-        public UCFood(DichVu dichVu)
+        public UCFood(DichVu dichVu,int check)
         {
             InitializeComponent();
             dv= dichVu;
@@ -42,6 +42,11 @@ namespace HotelManagementSystemProject.UC
             panelTruoc.Click += UCFood_Click;
             panelSau.Click += UCFood_Click;
             btnSua.Click += btnSua_Click;
+            if (check == 1)
+            {
+                btnSua.Visible = false;
+                btnDatDV.Visible = true;
+            }
         }
 
         public void SetFormFood(FAddFood form)

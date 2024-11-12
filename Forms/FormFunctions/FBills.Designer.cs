@@ -139,6 +139,7 @@
             this.txtGuestID.SelectedText = "";
             this.txtGuestID.Size = new System.Drawing.Size(179, 36);
             this.txtGuestID.TabIndex = 49;
+            this.txtGuestID.TextChanged += new System.EventHandler(this.txtGuestID_TextChanged);
             // 
             // label3
             // 
@@ -230,7 +231,6 @@
             this.guna2ComboBox1.Location = new System.Drawing.Point(16, 234);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.Size = new System.Drawing.Size(373, 36);
-            this.guna2ComboBox1.StartIndex = 0;
             this.guna2ComboBox1.TabIndex = 59;
             // 
             // label4
@@ -259,7 +259,6 @@
             this.btnAddListService.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnAddListService.Size = new System.Drawing.Size(33, 33);
             this.btnAddListService.TabIndex = 60;
-            this.btnAddListService.Click += new System.EventHandler(this.btnAddListService_Click);
             // 
             // lblTotalServices
             // 
@@ -311,9 +310,9 @@
         public System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2TextBox txtBillID;
         public System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         public System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2CircleButton btnAddListService;
-        private System.Windows.Forms.Label lblTotalServices;
+        public Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        public Guna.UI2.WinForms.Guna2CircleButton btnAddListService;
+        public System.Windows.Forms.Label lblTotalServices;
     }
 }
