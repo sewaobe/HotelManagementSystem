@@ -165,7 +165,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             try
             {
                 db.openConnection();
-                string query = "SELECT MaPhong FROM view_getAllIDPhong";
+                string query = "SELECT MaPhong FROM fn_getAllIDPhong()";
                 SqlCommand cmd = new SqlCommand(query, db.getConnection);
                 SqlDataReader reader = cmd.ExecuteReader();
 
