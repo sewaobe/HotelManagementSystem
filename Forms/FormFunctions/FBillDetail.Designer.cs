@@ -36,13 +36,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAddBill = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnDellBill = new Guna.UI2.WinForms.Guna2Button();
             this.txtEmployeeID = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtBillID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbBillMode = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cbbBillStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtGuestName = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // label6
@@ -158,31 +158,21 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Guest ID";
             // 
-            // btnAddBill
+            // btnDellBill
             // 
-            this.btnAddBill.BorderRadius = 10;
-            this.btnAddBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddBill.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBill.ForeColor = System.Drawing.Color.Black;
-            this.btnAddBill.Location = new System.Drawing.Point(211, 473);
-            this.btnAddBill.Name = "btnAddBill";
-            this.btnAddBill.Size = new System.Drawing.Size(180, 45);
-            this.btnAddBill.TabIndex = 27;
-            this.btnAddBill.Text = "Add Bill";
-            this.btnAddBill.Click += new System.EventHandler(this.btnAddBill_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 104);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 22);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Bill Status";
+            this.btnDellBill.BorderRadius = 10;
+            this.btnDellBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDellBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDellBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDellBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDellBill.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDellBill.ForeColor = System.Drawing.Color.Black;
+            this.btnDellBill.Location = new System.Drawing.Point(211, 473);
+            this.btnDellBill.Name = "btnDellBill";
+            this.btnDellBill.Size = new System.Drawing.Size(180, 45);
+            this.btnDellBill.TabIndex = 27;
+            this.btnDellBill.Text = "Dell bill";
+            this.btnDellBill.Click += new System.EventHandler(this.btnAddBill_Click);
             // 
             // txtEmployeeID
             // 
@@ -257,31 +247,43 @@
             this.cbbBillMode.StartIndex = 0;
             this.cbbBillMode.TabIndex = 41;
             // 
-            // cbbBillStatus
+            // label1
             // 
-            this.cbbBillStatus.BackColor = System.Drawing.Color.Transparent;
-            this.cbbBillStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbBillStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbBillStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbBillStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbBillStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbBillStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbBillStatus.ItemHeight = 30;
-            this.cbbBillStatus.Items.AddRange(new object[] {
-            "Not Paid",
-            "Paid"});
-            this.cbbBillStatus.Location = new System.Drawing.Point(17, 141);
-            this.cbbBillStatus.Name = "cbbBillStatus";
-            this.cbbBillStatus.Size = new System.Drawing.Size(373, 36);
-            this.cbbBillStatus.StartIndex = 0;
-            this.cbbBillStatus.TabIndex = 42;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 22);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Guest Name";
+            // 
+            // txtGuestName
+            // 
+            this.txtGuestName.BorderRadius = 5;
+            this.txtGuestName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGuestName.DefaultText = "";
+            this.txtGuestName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGuestName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGuestName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGuestName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGuestName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGuestName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtGuestName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGuestName.Location = new System.Drawing.Point(17, 140);
+            this.txtGuestName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGuestName.Name = "txtGuestName";
+            this.txtGuestName.PasswordChar = '\0';
+            this.txtGuestName.PlaceholderText = "";
+            this.txtGuestName.SelectedText = "";
+            this.txtGuestName.Size = new System.Drawing.Size(374, 36);
+            this.txtGuestName.TabIndex = 42;
             // 
             // FBillDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 542);
-            this.Controls.Add(this.cbbBillStatus);
+            this.Controls.Add(this.txtGuestName);
             this.Controls.Add(this.cbbBillMode);
             this.Controls.Add(this.txtBillID);
             this.Controls.Add(this.label7);
@@ -294,7 +296,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnAddBill);
+            this.Controls.Add(this.btnDellBill);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FBillDetail";
@@ -313,12 +315,12 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label2;
-        public Guna.UI2.WinForms.Guna2Button btnAddBill;
-        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2Button btnDellBill;
         public Guna.UI2.WinForms.Guna2TextBox txtEmployeeID;
         public Guna.UI2.WinForms.Guna2TextBox txtBillID;
         public System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2ComboBox cbbBillMode;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbBillStatus;
+        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2TextBox txtGuestName;
     }
 }

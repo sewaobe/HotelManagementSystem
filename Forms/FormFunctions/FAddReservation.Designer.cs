@@ -35,20 +35,23 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtGuestID = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddReservation = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtRoomID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2DateTimePicker3 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpCheckOut = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpCheckIn = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtCheckout = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCheckin = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAddGuest = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.cbRoomID = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnEditReservation = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.txtGuestID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // guna2Panel4
@@ -56,9 +59,10 @@
             this.guna2Panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.guna2Panel4.Location = new System.Drawing.Point(400, 3);
+            this.guna2Panel4.Location = new System.Drawing.Point(400, 2);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(3, 536);
+            this.guna2Panel4.Size = new System.Drawing.Size(3, 538);
             this.guna2Panel4.TabIndex = 47;
             // 
             // guna2Panel3
@@ -66,9 +70,10 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(0, 2);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(3, 536);
+            this.guna2Panel3.Size = new System.Drawing.Size(3, 538);
             this.guna2Panel3.TabIndex = 45;
             // 
             // guna2Panel2
@@ -76,9 +81,10 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 539);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 540);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(403, 3);
+            this.guna2Panel2.Size = new System.Drawing.Size(403, 2);
             this.guna2Panel2.TabIndex = 46;
             // 
             // guna2Panel1
@@ -87,8 +93,9 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(403, 3);
+            this.guna2Panel1.Size = new System.Drawing.Size(403, 2);
             this.guna2Panel1.TabIndex = 44;
             // 
             // txtName
@@ -122,27 +129,6 @@
             this.label5.TabIndex = 38;
             this.label5.Text = "Room ID";
             // 
-            // txtGuestID
-            // 
-            this.txtGuestID.BorderRadius = 5;
-            this.txtGuestID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGuestID.DefaultText = "";
-            this.txtGuestID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtGuestID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtGuestID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGuestID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGuestID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGuestID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtGuestID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGuestID.Location = new System.Drawing.Point(16, 49);
-            this.txtGuestID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGuestID.Name = "txtGuestID";
-            this.txtGuestID.PasswordChar = '\0';
-            this.txtGuestID.PlaceholderText = "";
-            this.txtGuestID.SelectedText = "";
-            this.txtGuestID.Size = new System.Drawing.Size(150, 36);
-            this.txtGuestID.TabIndex = 37;
-            // 
             // txtPhone
             // 
             this.txtPhone.BorderRadius = 5;
@@ -155,7 +141,7 @@
             this.txtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhone.Location = new System.Drawing.Point(13, 211);
+            this.txtPhone.Location = new System.Drawing.Point(14, 211);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PasswordChar = '\0';
@@ -168,7 +154,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 184);
+            this.label4.Location = new System.Drawing.Point(14, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 22);
             this.label4.TabIndex = 35;
@@ -193,68 +179,53 @@
             this.btnAddReservation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddReservation.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReservation.ForeColor = System.Drawing.Color.Black;
-            this.btnAddReservation.Location = new System.Drawing.Point(145, 473);
+            this.btnAddReservation.Location = new System.Drawing.Point(207, 472);
+            this.btnAddReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddReservation.Name = "btnAddReservation";
-            this.btnAddReservation.Size = new System.Drawing.Size(246, 45);
+            this.btnAddReservation.Size = new System.Drawing.Size(184, 45);
             this.btnAddReservation.TabIndex = 32;
             this.btnAddReservation.Text = "Add Reservation";
+            this.btnAddReservation.Click += new System.EventHandler(this.btnAddReservation_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 104);
+            this.label1.Location = new System.Drawing.Point(14, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 22);
             this.label1.TabIndex = 30;
             this.label1.Text = "Guest Name";
             // 
-            // txtRoomID
+            // dtpCheckOut
             // 
-            this.txtRoomID.BorderRadius = 5;
-            this.txtRoomID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRoomID.DefaultText = "";
-            this.txtRoomID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtRoomID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtRoomID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtRoomID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtRoomID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRoomID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtRoomID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRoomID.Location = new System.Drawing.Point(248, 49);
-            this.txtRoomID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.PasswordChar = '\0';
-            this.txtRoomID.PlaceholderText = "";
-            this.txtRoomID.SelectedText = "";
-            this.txtRoomID.Size = new System.Drawing.Size(142, 36);
-            this.txtRoomID.TabIndex = 48;
+            this.dtpCheckOut.Checked = true;
+            this.dtpCheckOut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpCheckOut.Location = new System.Drawing.Point(321, 404);
+            this.dtpCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCheckOut.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpCheckOut.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpCheckOut.Name = "dtpCheckOut";
+            this.dtpCheckOut.Size = new System.Drawing.Size(32, 36);
+            this.dtpCheckOut.TabIndex = 54;
+            this.dtpCheckOut.Value = new System.DateTime(2024, 11, 9, 20, 24, 14, 349);
+            this.dtpCheckOut.ValueChanged += new System.EventHandler(this.dtpCheckOut_ValueChanged);
             // 
-            // guna2DateTimePicker3
+            // dtpCheckIn
             // 
-            this.guna2DateTimePicker3.Checked = true;
-            this.guna2DateTimePicker3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker3.Location = new System.Drawing.Point(321, 404);
-            this.guna2DateTimePicker3.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker3.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker3.Name = "guna2DateTimePicker3";
-            this.guna2DateTimePicker3.Size = new System.Drawing.Size(31, 36);
-            this.guna2DateTimePicker3.TabIndex = 54;
-            this.guna2DateTimePicker3.Value = new System.DateTime(2024, 11, 9, 20, 24, 14, 349);
-            // 
-            // guna2DateTimePicker2
-            // 
-            this.guna2DateTimePicker2.Checked = true;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(321, 300);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(31, 36);
-            this.guna2DateTimePicker2.TabIndex = 53;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2024, 11, 9, 20, 24, 14, 349);
+            this.dtpCheckIn.Checked = true;
+            this.dtpCheckIn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpCheckIn.Location = new System.Drawing.Point(321, 300);
+            this.dtpCheckIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCheckIn.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpCheckIn.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpCheckIn.Name = "dtpCheckIn";
+            this.dtpCheckIn.Size = new System.Drawing.Size(32, 36);
+            this.dtpCheckIn.TabIndex = 53;
+            this.dtpCheckIn.Value = new System.DateTime(2024, 11, 9, 20, 24, 14, 349);
+            this.dtpCheckIn.ValueChanged += new System.EventHandler(this.dtpCheckIn_ValueChanged);
             // 
             // txtCheckout
             // 
@@ -268,20 +239,20 @@
             this.txtCheckout.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCheckout.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCheckout.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCheckout.Location = new System.Drawing.Point(13, 404);
+            this.txtCheckout.Location = new System.Drawing.Point(14, 404);
             this.txtCheckout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCheckout.Name = "txtCheckout";
             this.txtCheckout.PasswordChar = '\0';
             this.txtCheckout.PlaceholderText = "";
             this.txtCheckout.SelectedText = "";
-            this.txtCheckout.Size = new System.Drawing.Size(301, 36);
+            this.txtCheckout.Size = new System.Drawing.Size(302, 36);
             this.txtCheckout.TabIndex = 52;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 367);
+            this.label3.Location = new System.Drawing.Point(14, 368);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 22);
             this.label3.TabIndex = 51;
@@ -299,20 +270,20 @@
             this.txtCheckin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCheckin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCheckin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCheckin.Location = new System.Drawing.Point(13, 300);
+            this.txtCheckin.Location = new System.Drawing.Point(14, 300);
             this.txtCheckin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCheckin.Name = "txtCheckin";
             this.txtCheckin.PasswordChar = '\0';
             this.txtCheckin.PlaceholderText = "";
             this.txtCheckin.SelectedText = "";
-            this.txtCheckin.Size = new System.Drawing.Size(301, 36);
+            this.txtCheckin.Size = new System.Drawing.Size(302, 36);
             this.txtCheckin.TabIndex = 50;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 263);
+            this.label6.Location = new System.Drawing.Point(14, 262);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 22);
             this.label6.TabIndex = 49;
@@ -327,39 +298,139 @@
             this.btnAddGuest.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddGuest.ForeColor = System.Drawing.Color.White;
             this.btnAddGuest.Image = ((System.Drawing.Image)(resources.GetObject("btnAddGuest.Image")));
-            this.btnAddGuest.Location = new System.Drawing.Point(173, 49);
+            this.btnAddGuest.Location = new System.Drawing.Point(151, 49);
+            this.btnAddGuest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddGuest.Name = "btnAddGuest";
             this.btnAddGuest.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnAddGuest.Size = new System.Drawing.Size(35, 35);
             this.btnAddGuest.TabIndex = 55;
             this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
             // 
+            // cbRoomID
+            // 
+            this.cbRoomID.BackColor = System.Drawing.Color.Transparent;
+            this.cbRoomID.BorderRadius = 5;
+            this.cbRoomID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoomID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbRoomID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbRoomID.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbRoomID.ItemHeight = 30;
+            this.cbRoomID.Location = new System.Drawing.Point(231, 49);
+            this.cbRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoomID.Name = "cbRoomID";
+            this.cbRoomID.Size = new System.Drawing.Size(160, 36);
+            this.cbRoomID.TabIndex = 56;
+            // 
+            // btnEditReservation
+            // 
+            this.btnEditReservation.BorderRadius = 10;
+            this.btnEditReservation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditReservation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditReservation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditReservation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditReservation.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditReservation.ForeColor = System.Drawing.Color.Black;
+            this.btnEditReservation.Location = new System.Drawing.Point(205, 472);
+            this.btnEditReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditReservation.Name = "btnEditReservation";
+            this.btnEditReservation.Size = new System.Drawing.Size(184, 45);
+            this.btnEditReservation.TabIndex = 57;
+            this.btnEditReservation.Text = "Save ";
+            this.btnEditReservation.Visible = false;
+            this.btnEditReservation.Click += new System.EventHandler(this.btnEditReservation_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BorderRadius = 10;
+            this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Location = new System.Drawing.Point(14, 472);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(187, 45);
+            this.btnDelete.TabIndex = 58;
+            this.btnDelete.Text = "Delete ";
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // txtGuestID
+            // 
+            this.txtGuestID.BorderRadius = 5;
+            this.txtGuestID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGuestID.DefaultText = "";
+            this.txtGuestID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGuestID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGuestID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGuestID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGuestID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGuestID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtGuestID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGuestID.Location = new System.Drawing.Point(17, 49);
+            this.txtGuestID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGuestID.Name = "txtGuestID";
+            this.txtGuestID.PasswordChar = '\0';
+            this.txtGuestID.PlaceholderText = "";
+            this.txtGuestID.SelectedText = "";
+            this.txtGuestID.Size = new System.Drawing.Size(127, 50);
+            this.txtGuestID.TabIndex = 59;
+            this.txtGuestID.TextChanged += new System.EventHandler(this.txtGuestID_TextChanged);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(14, 472);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(187, 45);
+            this.btnCancel.TabIndex = 60;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FAddReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 542);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.txtGuestID);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEditReservation);
+            this.Controls.Add(this.cbRoomID);
             this.Controls.Add(this.btnAddGuest);
-            this.Controls.Add(this.guna2DateTimePicker3);
-            this.Controls.Add(this.guna2DateTimePicker2);
+            this.Controls.Add(this.dtpCheckOut);
+            this.Controls.Add(this.dtpCheckIn);
             this.Controls.Add(this.txtCheckout);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCheckin);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtRoomID);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtGuestID);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddReservation);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FAddReservation";
             this.Text = "FAddReservation";
             this.ResumeLayout(false);
@@ -375,19 +446,22 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2TextBox txtName;
         public System.Windows.Forms.Label label5;
-        public Guna.UI2.WinForms.Guna2TextBox txtGuestID;
         public Guna.UI2.WinForms.Guna2TextBox txtPhone;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label2;
         public Guna.UI2.WinForms.Guna2Button btnAddReservation;
         public System.Windows.Forms.Label label1;
-        public Guna.UI2.WinForms.Guna2TextBox txtRoomID;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker3;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpCheckOut;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpCheckIn;
         public Guna.UI2.WinForms.Guna2TextBox txtCheckout;
         public System.Windows.Forms.Label label3;
         public Guna.UI2.WinForms.Guna2TextBox txtCheckin;
         public System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CircleButton btnAddGuest;
+        public Guna.UI2.WinForms.Guna2ComboBox cbRoomID;
+        public Guna.UI2.WinForms.Guna2Button btnEditReservation;
+        public Guna.UI2.WinForms.Guna2Button btnDelete;
+        public Guna.UI2.WinForms.Guna2TextBox txtGuestID;
+        public Guna.UI2.WinForms.Guna2Button btnCancel;
     }
 }
