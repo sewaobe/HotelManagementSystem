@@ -61,22 +61,22 @@
             this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBirthday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Location = new System.Drawing.Point(16, 267);
-            this.txtBirthday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBirthday.Location = new System.Drawing.Point(11, 174);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.PasswordChar = '\0';
             this.txtBirthday.PlaceholderText = "";
             this.txtBirthday.SelectedText = "";
-            this.txtBirthday.Size = new System.Drawing.Size(374, 36);
+            this.txtBirthday.Size = new System.Drawing.Size(249, 23);
             this.txtBirthday.TabIndex = 37;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 240);
+            this.label6.Location = new System.Drawing.Point(8, 156);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 22);
+            this.label6.Size = new System.Drawing.Size(128, 15);
             this.label6.TabIndex = 36;
             this.label6.Text = "Employee BirthDay";
             // 
@@ -92,13 +92,12 @@
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAddress.Location = new System.Drawing.Point(17, 199);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAddress.Location = new System.Drawing.Point(11, 129);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(374, 36);
+            this.txtAddress.Size = new System.Drawing.Size(249, 23);
             this.txtAddress.TabIndex = 35;
             // 
             // txtName
@@ -113,22 +112,22 @@
             this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(17, 131);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtName.Location = new System.Drawing.Point(11, 85);
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(374, 36);
+            this.txtName.Size = new System.Drawing.Size(249, 23);
             this.txtName.TabIndex = 34;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(226, 24);
+            this.label5.Location = new System.Drawing.Point(151, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 22);
+            this.label5.Size = new System.Drawing.Size(98, 15);
             this.label5.TabIndex = 33;
             this.label5.Text = "Employee Sex";
             // 
@@ -145,13 +144,12 @@
             this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtID.Location = new System.Drawing.Point(16, 49);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtID.Location = new System.Drawing.Point(11, 32);
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
             this.txtID.SelectedText = "";
-            this.txtID.Size = new System.Drawing.Size(179, 36);
+            this.txtID.Size = new System.Drawing.Size(119, 23);
             this.txtID.TabIndex = 32;
             // 
             // txtPhone
@@ -166,22 +164,22 @@
             this.txtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhone.Location = new System.Drawing.Point(17, 335);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPhone.Location = new System.Drawing.Point(11, 218);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PasswordChar = '\0';
             this.txtPhone.PlaceholderText = "";
             this.txtPhone.SelectedText = "";
-            this.txtPhone.Size = new System.Drawing.Size(373, 36);
+            this.txtPhone.Size = new System.Drawing.Size(249, 23);
             this.txtPhone.TabIndex = 31;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 308);
+            this.label4.Location = new System.Drawing.Point(8, 200);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 22);
+            this.label4.Size = new System.Drawing.Size(115, 15);
             this.label4.TabIndex = 30;
             this.label4.Text = "Employee Phone";
             // 
@@ -189,9 +187,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 172);
+            this.label3.Location = new System.Drawing.Point(8, 112);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 22);
+            this.label3.Size = new System.Drawing.Size(125, 15);
             this.label3.TabIndex = 29;
             this.label3.Text = "Employee Address";
             // 
@@ -199,9 +198,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 24);
+            this.label2.Location = new System.Drawing.Point(8, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 22);
+            this.label2.Size = new System.Drawing.Size(88, 15);
             this.label2.TabIndex = 28;
             this.label2.Text = "Employee ID";
             // 
@@ -214,9 +214,10 @@
             this.btnAddEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployee.ForeColor = System.Drawing.Color.Black;
-            this.btnAddEmployee.Location = new System.Drawing.Point(205, 473);
+            this.btnAddEmployee.Location = new System.Drawing.Point(137, 307);
+            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(186, 45);
+            this.btnAddEmployee.Size = new System.Drawing.Size(124, 29);
             this.btnAddEmployee.TabIndex = 27;
             this.btnAddEmployee.Text = "Add Employee";
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
@@ -236,9 +237,10 @@
             "Male",
             "Female",
             "Other"});
-            this.cbSex.Location = new System.Drawing.Point(230, 49);
+            this.cbSex.Location = new System.Drawing.Point(153, 32);
+            this.cbSex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(160, 36);
+            this.cbSex.Size = new System.Drawing.Size(108, 36);
             this.cbSex.StartIndex = 0;
             this.cbSex.TabIndex = 26;
             // 
@@ -246,9 +248,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 104);
+            this.label1.Location = new System.Drawing.Point(9, 68);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 22);
+            this.label1.Size = new System.Drawing.Size(112, 15);
             this.label1.TabIndex = 25;
             this.label1.Text = "Employee Name";
             // 
@@ -256,9 +259,10 @@
             // 
             this.lblWorkID.AutoSize = true;
             this.lblWorkID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWorkID.Location = new System.Drawing.Point(12, 456);
+            this.lblWorkID.Location = new System.Drawing.Point(8, 296);
+            this.lblWorkID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWorkID.Name = "lblWorkID";
-            this.lblWorkID.Size = new System.Drawing.Size(81, 22);
+            this.lblWorkID.Size = new System.Drawing.Size(57, 15);
             this.lblWorkID.TabIndex = 44;
             this.lblWorkID.Text = "Work ID";
             // 
@@ -277,9 +281,10 @@
             "Bao ve",
             "Phuc vu",
             "Le Tan"});
-            this.cbbWordID.Location = new System.Drawing.Point(16, 481);
+            this.cbbWordID.Location = new System.Drawing.Point(11, 313);
+            this.cbbWordID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbbWordID.Name = "cbbWordID";
-            this.cbbWordID.Size = new System.Drawing.Size(160, 36);
+            this.cbbWordID.Size = new System.Drawing.Size(108, 36);
             this.cbbWordID.StartIndex = 0;
             this.cbbWordID.TabIndex = 43;
             // 
@@ -287,9 +292,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 390);
+            this.label8.Location = new System.Drawing.Point(9, 253);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 22);
+            this.label8.Size = new System.Drawing.Size(111, 15);
             this.label8.TabIndex = 39;
             this.label8.Text = "Recruitment day";
             // 
@@ -305,22 +311,22 @@
             this.txtRecruitmentday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtRecruitmentday.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtRecruitmentday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRecruitmentday.Location = new System.Drawing.Point(17, 415);
-            this.txtRecruitmentday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtRecruitmentday.Location = new System.Drawing.Point(11, 270);
             this.txtRecruitmentday.Name = "txtRecruitmentday";
             this.txtRecruitmentday.PasswordChar = '\0';
             this.txtRecruitmentday.PlaceholderText = "";
             this.txtRecruitmentday.SelectedText = "";
-            this.txtRecruitmentday.Size = new System.Drawing.Size(179, 36);
+            this.txtRecruitmentday.Size = new System.Drawing.Size(119, 23);
             this.txtRecruitmentday.TabIndex = 40;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(208, 390);
+            this.label7.Location = new System.Drawing.Point(139, 253);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 22);
+            this.label7.Size = new System.Drawing.Size(112, 15);
             this.label7.TabIndex = 41;
             this.label7.Text = "Number of shifts";
             // 
@@ -336,21 +342,20 @@
             this.txtNumberShifts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNumberShifts.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNumberShifts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumberShifts.Location = new System.Drawing.Point(212, 417);
-            this.txtNumberShifts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNumberShifts.Location = new System.Drawing.Point(141, 271);
             this.txtNumberShifts.Name = "txtNumberShifts";
             this.txtNumberShifts.PasswordChar = '\0';
             this.txtNumberShifts.PlaceholderText = "";
             this.txtNumberShifts.SelectedText = "";
-            this.txtNumberShifts.Size = new System.Drawing.Size(179, 36);
+            this.txtNumberShifts.Size = new System.Drawing.Size(119, 23);
             this.txtNumberShifts.TabIndex = 42;
             // 
             // FAddEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(403, 542);
+            this.ClientSize = new System.Drawing.Size(269, 352);
             this.Controls.Add(this.lblWorkID);
             this.Controls.Add(this.cbbWordID);
             this.Controls.Add(this.txtNumberShifts);
@@ -371,6 +376,7 @@
             this.Controls.Add(this.cbSex);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FAddEmployee";
             this.Text = "FAddEmployee";
             this.ResumeLayout(false);

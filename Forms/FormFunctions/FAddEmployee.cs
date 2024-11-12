@@ -13,7 +13,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
 {
     public partial class FAddEmployee : Form
     {
-        DBConnection db= new DBConnection();
+        DBConnection db = new DBConnection();
         public FAddEmployee()
         {
             InitializeComponent();

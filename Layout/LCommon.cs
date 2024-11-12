@@ -1,4 +1,6 @@
-﻿using HotelManagementSystemProject.Forms.FormFunctions;
+﻿using HotelManagementSystemProject.Class;
+using HotelManagementSystemProject.Forms.FormFunctions;
+using HotelManagementSystemProject.UC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +17,8 @@ namespace HotelManagementSystemProject.Layout
     public partial class LCommon : Form
     {
         DBConnection db = new DBConnection();
+        FAddFood fAddFood = new FAddFood();
+        FAddCategory fAddCategory = new FAddCategory();
         private void container(object form)
         {
             if (panelAddObject.Controls.Count > 0) { panelAddObject.Controls.Clear(); }
@@ -73,16 +77,18 @@ namespace HotelManagementSystemProject.Layout
                 case "Restaurant":
                     lblNameObject.Text = "Food List";
                     lblAddObject.Text = "Add Food";
-                    dtgvObject.DataSource = getAllFood();
-                    container(new FAddFood());
+                    flowDV.Visible = true;
+                    dtgvObject.Visible = false;
+                    getAllFood();
+                    container(fAddFood);
                     break;
                 case "Category":
                     lblNameObject.Text = "Category List";
                     lblAddObject.Text = "Add Category";
-                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
- *                    
-*/
-                    container(new FAddCategory());
+                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview*/
+                    dtgvObject.DataSource = getAllCategory();
+                    dtgvObject.CellClick += DtgvObject_CellClick;
+                    container(fAddCategory);
                     break;
                 case "Bills History":
                     lblNameObject.Text = "Bills History";
@@ -120,6 +126,30 @@ namespace HotelManagementSystemProject.Layout
             }
         }
 
+        private void DtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvObject.Rows[e.RowIndex];
+                fAddCategory.txtServiceID.Text = selectedRow.Cells["MaLoaiDV"].Value.ToString();
+                fAddCategory.txtServiceName.Text = selectedRow.Cells["TenLoaiDV"].Value.ToString();
+                fAddCategory.btnAddCategory.Visible = false;
+                fAddCategory.btnDelete.Visible = true;
+                fAddCategory.btnSave.Visible = true;
+            }
+        }
+
+        private DataTable getAllCategory()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM View_LoaiDV", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+
         private DataTable getAllEmployee()
         {
             db.openConnection();
@@ -130,15 +160,41 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
-        private DataTable getAllFood()
+        private void getAllFood()
         {
             db.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ViewService", db.getConnection);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM View_Service", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+            List<DichVu> listDichVu = new List<DichVu>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                DichVu dichVu = new DichVu
+                {
+                    MaDV = Convert.ToInt32(row["MaDV"]),
+                    TenDV = row["TenDV"].ToString(),
+                    GiaDV = Convert.ToDecimal(row["GiaDV"]),
+                    MoTa = row["MoTa"].ToString(),
+                    MaLoaiDV = Convert.ToInt32(row["MaLoaiDV"]),
+                    TenLoaiDV = row["TenLoaiDV"].ToString(),
+                    TrangThai = row["TrangThai"].ToString()
+                };
+                
+                listDichVu.Add(dichVu);
+            }
+            foreach(DichVu dichVu in listDichVu)
+            {
+                UCFood uc = new UCFood(dichVu);
+                //panelAddObject.Controls.Clear();
+                //FAddFood form = new FAddFood();
+                uc.SetFormFood(fAddFood);
+                //container(form);
+                flowDV.Controls.Add(uc);
+            }    
+            /*adapter.Fill(dataTable);*/
             db.closeConnection();
-            return dataTable;
         }
         private DataTable getAllGuest()
         {
@@ -169,6 +225,11 @@ namespace HotelManagementSystemProject.Layout
             adapter.Fill(dataTable);
             db.closeConnection();
             return dataTable;
+        }
+
+        private void dtgvObject_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
