@@ -45,6 +45,7 @@
             // dtgvObject
             // 
             this.dtgvObject.AllowUserToResizeColumns = false;
+
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.dtgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dtgvObject.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
@@ -136,6 +137,7 @@
             this.cbbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbType.ItemHeight = 30;
             this.cbbType.Items.AddRange(new object[] {
+
             "All Type",
             "Single Bed",
             "Double Bed",
@@ -157,10 +159,11 @@
             this.cbbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.cbbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbStatus.ItemHeight = 30;
             this.cbbStatus.Items.AddRange(new object[] {
+
             "All Status",
             "Cleaning",
             "Dirty",
@@ -191,6 +194,7 @@
             this.panelAddObject.BackColor = System.Drawing.Color.White;
             this.panelAddObject.BorderRadius = 20;
             this.panelAddObject.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+
             this.panelAddObject.Location = new System.Drawing.Point(1165, 85);
             this.panelAddObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelAddObject.Name = "panelAddObject";
@@ -247,6 +251,7 @@
             this.Controls.Add(this.dtgvObject);
             this.Controls.Add(this.txtGuestID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 
             this.Name = "LCommon";

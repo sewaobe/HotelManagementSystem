@@ -58,6 +58,8 @@ namespace HotelManagementSystemProject.Layout
         public LCommon(string function)
         {
             InitializeComponent();
+            cbbType.SelectedIndexChanged += CbbType_SelectedIndexChanged;
+            cbbStatus.SelectedIndexChanged += CbbStatus_SelectedIndexChanged;
             
 
             switch (function)
@@ -66,8 +68,19 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Rooms";
                     lblAddObject.Text = "Add Room";
                     dtgvObject.DataSource = getAllPhong();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiToanBoPhong", db.getConnection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        cbbType.Items.Add(row["LoaiPhong"].ToString());
+                    }
+                    container(fAddFood);
 
                     container(new FAddRoom());
+                    string[] trangThai = { "Phòng trống", "Đã đặt", "Đang sử dụng", "Đang dọn dẹp", "Đã xóa" };
+                    cbbStatus.Items.AddRange(trangThai);
                     break;
                 case "Guests":
                     lblNameObject.Text = "Guests";
@@ -103,9 +116,22 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Food List";
                     lblAddObject.Text = "Add Food";
                     flowDV.Visible = true;
+                    flowDV.AutoScroll = true;
                     dtgvObject.Visible = false;
+                    getAllFood();
+                    cmd = new SqlCommand("SELECT * FROM View_LoaiDV", db.getConnection);
+                     adapter = new SqlDataAdapter(cmd);
+                     dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        cbbType.Items.Add(row["TenLoaiDV"].ToString());
+                    }
                     getAllFood(0);
                     container(fAddFood);
+                    cbbStatus.Items.Add("Có sẵn");
+                    cbbStatus.Items.Add("Sắp ra mắt");
+                    cbbStatus.Items.Add("Đã xóa");
                     break;
                 case "Category":
                     lblNameObject.Text = "Category List";
@@ -203,6 +229,203 @@ namespace HotelManagementSystemProject.Layout
                 MessageBox.Show("Vui lòng nhập thông tin khách hàng xài dịch vụ");
             }
            
+
+        private void CbbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (lblNameObject.Text)
+            {
+                case "Food List":
+                    db.openConnection();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM func_LocDichVu(@MaLoaiDV,@TrangThai)", db.getConnection);
+                    cmd.CommandType = CommandType.Text;
+                    if (cbbType.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@MaLoaiDV", SqlDbType.Int).Value = checkCbbTye();  // Chuyển từ string sang int nếu cần
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@MaLoaiDV", SqlDbType.Int).Value = DBNull.Value;
+                    }
+
+                    if (cbbStatus.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = cbbStatus.Text;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    flowDV.Controls.Clear();
+                    List<DichVu> listDichVu = new List<DichVu>();
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        DichVu dichVu = new DichVu
+                        {
+                            MaDV = Convert.ToInt32(row["MaDV"]),
+                            TenDV = row["TenDV"].ToString(),
+                            GiaDV = Convert.ToDecimal(row["GiaDV"]),
+                            MoTa = row["MoTa"].ToString(),
+                            MaLoaiDV = Convert.ToInt32(row["MaLoaiDV"]),
+                            TenLoaiDV = row["TenLoaiDV"].ToString(),
+                            TrangThai = row["TrangThai"].ToString()
+                        };
+
+                        listDichVu.Add(dichVu);
+                    }
+                    foreach (DichVu dichVu in listDichVu)
+                    {
+                        UCFood uc = new UCFood(dichVu);
+                        //panelAddObject.Controls.Clear();
+                        //FAddFood form = new FAddFood();
+                        uc.SetFormFood(fAddFood);
+                        //container(form);
+                        flowDV.Controls.Add(uc);
+                    }
+                    db.closeConnection();
+                    break;
+
+                case "Rooms":
+                    db.openConnection();
+                    cmd = new SqlCommand("SELECT * FROM func_LocPhong(@LoaiPhong,@TrangThai)", db.getConnection);
+                    cmd.CommandType = CommandType.Text;
+                    if (cbbType.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = cbbType.Text;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+
+                    if (cbbStatus.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = cbbStatus.Text;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+                    adapter = new SqlDataAdapter(cmd);
+                    dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dtgvObject.DataSource = dataTable;
+                    db.closeConnection();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private string checkCbbTye()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM View_LoaiDV", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (cbbType.Text == row["TenLoaiDV"].ToString())
+                {
+                    return row["MaLoaiDV"].ToString();
+                }
+            }
+            return null;
+        }
+        private void CbbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (lblNameObject.Text)
+            {
+                case "Food List":
+                    db.openConnection();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM func_LocDichVu(@MaLoaiDV,@TrangThai)", db.getConnection);
+                    cmd.CommandType = CommandType.Text;
+                    if (cbbType.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@MaLoaiDV", SqlDbType.Int).Value = checkCbbTye();  // Chuyển từ string sang int nếu cần
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@MaLoaiDV", SqlDbType.Int).Value = DBNull.Value;
+                    }
+
+                    if (cbbStatus.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = cbbStatus.Text;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    flowDV.Controls.Clear();
+                    List<DichVu> listDichVu = new List<DichVu>();
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        DichVu dichVu = new DichVu
+                        {
+                            MaDV = Convert.ToInt32(row["MaDV"]),
+                            TenDV = row["TenDV"].ToString(),
+                            GiaDV = Convert.ToDecimal(row["GiaDV"]),
+                            MoTa = row["MoTa"].ToString(),
+                            MaLoaiDV = Convert.ToInt32(row["MaLoaiDV"]),
+                            TenLoaiDV = row["TenLoaiDV"].ToString(),
+                            TrangThai = row["TrangThai"].ToString()
+                        };
+
+                        listDichVu.Add(dichVu);
+                    }
+                    foreach (DichVu dichVu in listDichVu)
+                    {
+                        UCFood uc = new UCFood(dichVu);
+                        //panelAddObject.Controls.Clear();
+                        //FAddFood form = new FAddFood();
+                        uc.SetFormFood(fAddFood);
+                        //container(form);
+                        flowDV.Controls.Add(uc);
+                    }
+                    db.closeConnection();
+                    break; 
+
+                case "Rooms":
+                    db.openConnection();
+                    cmd = new SqlCommand("SELECT * FROM func_LayPhongTheoLoai(@LoaiPhong,@TrangThai)", db.getConnection);
+                    cmd.CommandType = CommandType.Text;
+                    if (cbbType.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = cbbType.Text;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+
+                    if (cbbStatus.Text != "ALL")
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = cbbStatus.Text;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+                    adapter = new SqlDataAdapter(cmd);
+                    dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dtgvObject.DataSource = dataTable;
+                    db.closeConnection();
+                    break; 
+                default:
+                    break; 
+            }
+        }
 
         }
       
