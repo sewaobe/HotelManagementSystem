@@ -18,12 +18,12 @@ namespace HotelManagementSystemProject.UC
     public partial class UCFood : UserControl
     {
         private FAddFood fAddFood;
-        private DichVu dv;
+        public DichVu dv;
         public UCFood()
         {
             InitializeComponent();
         }
-        public UCFood(DichVu dichVu)
+        public UCFood(DichVu dichVu,int check)
         {
             InitializeComponent();
             dv= dichVu;
@@ -42,6 +42,11 @@ namespace HotelManagementSystemProject.UC
             panelTruoc.Click += UCFood_Click;
             panelSau.Click += UCFood_Click;
             btnSua.Click += btnSua_Click;
+            if (check == 1)
+            {
+                btnSua.Visible = false;
+                btnDatDV.Visible = true;
+            }
         }
 
         public void SetFormFood(FAddFood form)
@@ -75,10 +80,6 @@ namespace HotelManagementSystemProject.UC
 
       
 
-        private void btnDatDV_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("btn đã đc click");
-        }
 
 
     }

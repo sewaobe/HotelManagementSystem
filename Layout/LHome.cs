@@ -55,12 +55,20 @@ namespace HotelManagementSystemProject.Layout
         {
             btnCheckIn.FillColor = Color.LightCyan;
             btnCheckOut.FillColor = Color.White;
+            FAddReservation fAddReservation = new FAddReservation();
+            fAddReservation.btnCancel.Visible = true;
+            fAddReservation.ShowDialog();
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             btnCheckIn.FillColor = Color.White;
             btnCheckOut.FillColor = Color.LightCyan;
+            LCommon lCommon = new LCommon("Check out");
+            lCommon.FormBorderStyle = FormBorderStyle.Sizable;
+            lCommon.ClientSize = new Size(1150, 600);
+
+            lCommon.ShowDialog();
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)

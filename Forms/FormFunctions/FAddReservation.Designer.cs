@@ -46,12 +46,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCheckin = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnAddGuest = new Guna.UI2.WinForms.Guna2CircleButton();
             this.cbRoomID = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnEditReservation = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.txtGuestID = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddGuest = new Guna.UI2.WinForms.Guna2CircleButton();
             this.SuspendLayout();
             // 
             // guna2Panel4
@@ -289,23 +289,6 @@
             this.label6.TabIndex = 49;
             this.label6.Text = "Check in";
             // 
-            // btnAddGuest
-            // 
-            this.btnAddGuest.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddGuest.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddGuest.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddGuest.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddGuest.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAddGuest.ForeColor = System.Drawing.Color.White;
-            this.btnAddGuest.Image = ((System.Drawing.Image)(resources.GetObject("btnAddGuest.Image")));
-            this.btnAddGuest.Location = new System.Drawing.Point(151, 49);
-            this.btnAddGuest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddGuest.Name = "btnAddGuest";
-            this.btnAddGuest.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnAddGuest.Size = new System.Drawing.Size(35, 35);
-            this.btnAddGuest.TabIndex = 55;
-            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
-            // 
             // cbRoomID
             // 
             this.cbRoomID.BackColor = System.Drawing.Color.Transparent;
@@ -322,6 +305,7 @@
             this.cbRoomID.Name = "cbRoomID";
             this.cbRoomID.Size = new System.Drawing.Size(160, 36);
             this.cbRoomID.TabIndex = 56;
+            this.cbRoomID.SelectedIndexChanged += new System.EventHandler(this.cbRoomID_SelectedIndexChanged);
             // 
             // btnEditReservation
             // 
@@ -401,6 +385,23 @@
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnAddGuest
+            // 
+            this.btnAddGuest.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddGuest.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddGuest.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddGuest.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddGuest.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddGuest.ForeColor = System.Drawing.Color.White;
+            this.btnAddGuest.Image = ((System.Drawing.Image)(resources.GetObject("btnAddGuest.Image")));
+            this.btnAddGuest.Location = new System.Drawing.Point(151, 49);
+            this.btnAddGuest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddGuest.Name = "btnAddGuest";
+            this.btnAddGuest.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnAddGuest.Size = new System.Drawing.Size(35, 35);
+            this.btnAddGuest.TabIndex = 55;
+            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
+            // 
             // FAddReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -432,6 +433,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FAddReservation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FAddReservation";
             this.ResumeLayout(false);
             this.PerformLayout();

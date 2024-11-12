@@ -1,4 +1,6 @@
-﻿using HotelManagementSystemProject.Class;
+﻿using Guna.UI2.WinForms;
+using HotelManagementSystemProject.Class;
+using HotelManagementSystemProject.Forms;
 using HotelManagementSystemProject.Forms.FormFunctions;
 using HotelManagementSystemProject.UC;
 using System;
@@ -9,7 +11,9 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Web.UI.Design;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -17,7 +21,7 @@ namespace HotelManagementSystemProject.Layout
 {
     public partial class LCommon : Form
     {
-        FBills fBills = new FBills();
+        FBills fBills;
         FAddGuest fAddGuest = new FAddGuest();
         FAddReservation fAddReservation = new FAddReservation();
         DBConnection db = new DBConnection();
@@ -50,9 +54,12 @@ namespace HotelManagementSystemProject.Layout
 
             }
         }
+       
         public LCommon(string function)
         {
             InitializeComponent();
+            
+
             switch (function)
             {
                 case "Rooms":
@@ -85,6 +92,8 @@ namespace HotelManagementSystemProject.Layout
                     lblAddObject.Text = "Add reservation";
                     dtgvObject.DataSource = getAllReservation();
                     dtgvObject.Columns["MaKH"].Visible = false;
+                    dtgvObject.Columns["MaHD"].Visible = false;
+
                     fAddReservation.LoadHeaderReservation(dtgvObject);
                     cbbStatus.Visible = false;
                     fAddReservation.DanhSachLoaiPhong(cbbType);
@@ -95,7 +104,7 @@ namespace HotelManagementSystemProject.Layout
                     lblAddObject.Text = "Add Food";
                     flowDV.Visible = true;
                     dtgvObject.Visible = false;
-                    getAllFood();
+                    getAllFood(0);
                     container(fAddFood);
                     break;
                 case "Category":
@@ -135,18 +144,68 @@ namespace HotelManagementSystemProject.Layout
                     dtgvObject.DataSource = getAllBill();
                     dtgvObject.Columns["MaNV"].Visible = false;
                     dtgvObject.Columns["MaKH"].Visible = false;
-                    container(new FBills());
+                    fBills = new FBills();
+                    fBills.btnAddListService.Click += btnAddListService_Click;
+                    container(fBills);
+
                     break;
 
                 case "Add service list":
                     lblNameObject.Text = "List service";
                     lblAddObject.Text = "Information Service Using";
                     break;
+                case "Check out":
+                    lblNameObject.Text = "List service guest used";
+                    lblAddObject.Text = "Detail Bill";
+                    FBillDetail fBillDetail = new FBillDetail();
+                    fBillDetail.btnDellBill.Text = "Proceed";
+                    container(fBillDetail);
+                    
+                    txtGuestID.Visible = true;
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
+                    dtgvObject.DataSource = getAllServiceAllGuest();
+                    dtgvObject.Columns["TriGiaHD"].Visible = false;
+
+
+                    break;
+
                 default:
                     break;
             }
         }
+        private void btnAddListService_Click(object sender, EventArgs e)
+        {
+            Guna2CircleButton guna2CircleButton = sender as Guna2CircleButton;
+            FBills f = guna2CircleButton.Parent as FBills;
+            if (!string.IsNullOrEmpty(f.txtGuestID.Text))
+            {
+                LCommon lCommon = new LCommon("Add service list");
+                lCommon.FormBorderStyle = FormBorderStyle.Sizable;
+                lCommon.ClientSize = new Size(1150, 600);
+                lCommon.flowDV.Visible = true;
+                lCommon.dtgvObject.Visible = false;
+                lCommon.container(new FAddListServices());
+               
+                lCommon.getAllFood(1);
+                lCommon.ShowDialog();
+                
+                fBills.lblTotalServices.Text = FHome.listDV.Count.ToString();
+                fBills.cbbListService.Items.Clear();
+                foreach (DichVu dv in FHome.listDV)
+                {
+                    fBills.cbbListService.Items.Add(dv.TenDV);
+                }
+                fBills.txtBillValue.Text = FHome.tongTienDichVu.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập thông tin khách hàng xài dịch vụ");
+            }
+           
 
+        }
+      
         private void DtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -159,7 +218,16 @@ namespace HotelManagementSystemProject.Layout
                 fAddCategory.btnSave.Visible = true;
             }
         }
-
+        private DataTable getAllServiceAllGuest()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_TimCacDichVuTatCaKhachHangSuDung", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
         private DataTable getAllCategory()
         {
             db.openConnection();
@@ -191,8 +259,9 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
+        private void getAllFood(int check)
 
-        private void getAllFood()
+
         {
             db.openConnection();
             SqlCommand cmd = new SqlCommand("SELECT * FROM View_Service", db.getConnection);
@@ -218,15 +287,70 @@ namespace HotelManagementSystemProject.Layout
             }
             foreach(DichVu dichVu in listDichVu)
             {
-                UCFood uc = new UCFood(dichVu);
+                UCFood uc = new UCFood(dichVu,check);
                 //panelAddObject.Controls.Clear();
                 //FAddFood form = new FAddFood();
                 uc.SetFormFood(fAddFood);
+                uc.btnDatDV.Click += btnDatDV_Click;
                 //container(form);
                 flowDV.Controls.Add(uc);
             }    
             /*adapter.Fill(dataTable);*/
             db.closeConnection();
+        }
+        private void btnDatDV_Click(object sender, EventArgs e)
+        {
+            Guna2Button guna2Button = sender as Guna2Button;
+       
+            Guna2CustomGradientPanel guna2CustomGradientPanel = guna2Button.Parent as Guna2CustomGradientPanel;
+
+            UCFood uCFood = guna2CustomGradientPanel.Parent as UCFood;
+            FlowLayoutPanel flowLayoutPanel = uCFood.Parent as FlowLayoutPanel;
+            LCommon lCommon = flowLayoutPanel.Parent as LCommon;
+            FAddListServices FAddListServices = new FAddListServices();
+            foreach (Control control in lCommon.panelAddObject.Controls)
+            {
+                FAddListServices = control as FAddListServices;
+            }
+            FAddListServices.btnProcced.Click += btnProcced_Click;
+
+            ucServiceMini ucServiceMini = new ucServiceMini(uCFood.dv);
+            ucServiceMini.btnRemove.Click += remove_Click;
+
+            FAddListServices.flow.Controls.Add(ucServiceMini);
+            if (FAddListServices.flow.Controls.Contains(ucServiceMini))
+            {
+                guna2Button.Text = "Đã thêm";
+                guna2Button.Enabled = false;
+            }
+
+        }
+        private void btnProcced_Click(object sender, EventArgs e)
+        {
+            Guna2Button guna2CircleButton = sender as Guna2Button;
+            FAddListServices fAddListServices = guna2CircleButton.Parent as FAddListServices;
+            Guna2Panel guna2Panel = fAddListServices.Parent as Guna2Panel;
+       
+            LCommon lCommon = guna2Panel.Parent as LCommon;
+            lCommon.Close();
+            
+        }
+        private void remove_Click(object sender, EventArgs e)
+        {
+            Guna2CircleButton guna2CircleButton = sender as Guna2CircleButton;
+            ucServiceMini ucServiceMini = guna2CircleButton.Parent as ucServiceMini;
+            FlowLayoutPanel flow = ucServiceMini.Parent as FlowLayoutPanel;
+            LCommon lCommon = flow.Parent.Parent.Parent as LCommon;
+            foreach(UCFood uc in lCommon.flowDV.Controls)
+            {
+                if (uc.lblMaDV.Text.Equals(ucServiceMini.lblMaDV.Text.ToString()))
+                {
+                    uc.btnDatDV.Text = "Thêm";
+                    uc.btnDatDV.Enabled = true;
+                }
+            }
+         
+            flow.Controls.Remove(ucServiceMini);
         }
         private DataTable getAllGuest()
         {
@@ -300,7 +424,18 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
+        private DataTable getAllServiceGuestUsed()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM func_TimCacDichVuKhachHangSuDung(@MaKH)", db.getConnection);
+            cmd.Parameters.AddWithValue("@MaKH", txtGuestID.Text);
 
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
         private void dtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -340,6 +475,7 @@ namespace HotelManagementSystemProject.Layout
                     break; // Added the break to avoid f
 
                 case "Bills":
+
                     fBills.BillsClicked(dtgvObject, e);
                     container(fBills);
                     break;
@@ -412,6 +548,17 @@ namespace HotelManagementSystemProject.Layout
         }
         private void dtgvObject_Click(object sender, EventArgs e)
         {
+
+        private void txtGuestID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dtgvObject.DataSource = getAllServiceGuestUsed();
+            }
+            catch
+            {
+                MessageBox.Show("Vui long nhap chinh xac ma khach hang");
+            }
 
         }
     }

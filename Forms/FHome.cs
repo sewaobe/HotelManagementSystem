@@ -1,3 +1,4 @@
+﻿using HotelManagementSystemProject.Class;
 ﻿using HotelManagementSystemProject.Forms.FormFunctions;
 using HotelManagementSystemProject.Layout;
 using System;
@@ -17,9 +18,12 @@ namespace HotelManagementSystemProject.Forms
     {
         
         DBConnection db = new DBConnection();
+        public static List<DichVuList> listDVList = new List<DichVuList>();
+        public static List<DichVu> listDV = new List<DichVu>();
         private string searchCategory = "Home";
         private LCommon lCommon;
 
+        public static Decimal tongTienDichVu = 0;
         public FHome()
         {
             InitializeComponent();

@@ -32,14 +32,10 @@
             this.txtBillValue = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGuestID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtBillDay = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDellBill = new Guna.UI2.WinForms.Guna2Button();
             this.txtEmployeeID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtBillID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.cbbBillMode = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGuestName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -106,37 +102,7 @@
             this.txtGuestID.SelectedText = "";
             this.txtGuestID.Size = new System.Drawing.Size(179, 36);
             this.txtGuestID.TabIndex = 32;
-            // 
-            // txtBillDay
-            // 
-            this.txtBillDay.BorderRadius = 5;
-            this.txtBillDay.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBillDay.DefaultText = "";
-            this.txtBillDay.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBillDay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBillDay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBillDay.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBillDay.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBillDay.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBillDay.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBillDay.Location = new System.Drawing.Point(17, 399);
-            this.txtBillDay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBillDay.Name = "txtBillDay";
-            this.txtBillDay.PasswordChar = '\0';
-            this.txtBillDay.PlaceholderText = "";
-            this.txtBillDay.SelectedText = "";
-            this.txtBillDay.Size = new System.Drawing.Size(378, 36);
-            this.txtBillDay.TabIndex = 31;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 372);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 22);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Bill Day";
+            this.txtGuestID.TextChanged += new System.EventHandler(this.txtGuestID_TextChanged);
             // 
             // label3
             // 
@@ -167,7 +133,7 @@
             this.btnDellBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDellBill.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDellBill.ForeColor = System.Drawing.Color.Black;
-            this.btnDellBill.Location = new System.Drawing.Point(211, 473);
+            this.btnDellBill.Location = new System.Drawing.Point(211, 460);
             this.btnDellBill.Name = "btnDellBill";
             this.btnDellBill.Size = new System.Drawing.Size(180, 45);
             this.btnDellBill.TabIndex = 27;
@@ -194,38 +160,6 @@
             this.txtEmployeeID.SelectedText = "";
             this.txtEmployeeID.Size = new System.Drawing.Size(179, 36);
             this.txtEmployeeID.TabIndex = 38;
-            // 
-            // txtBillID
-            // 
-            this.txtBillID.BorderRadius = 5;
-            this.txtBillID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBillID.DefaultText = "";
-            this.txtBillID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBillID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBillID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBillID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBillID.Enabled = false;
-            this.txtBillID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBillID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBillID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBillID.Location = new System.Drawing.Point(17, 474);
-            this.txtBillID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBillID.Name = "txtBillID";
-            this.txtBillID.PasswordChar = '\0';
-            this.txtBillID.PlaceholderText = "";
-            this.txtBillID.SelectedText = "";
-            this.txtBillID.Size = new System.Drawing.Size(179, 36);
-            this.txtBillID.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 449);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 22);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Bill ID";
             // 
             // cbbBillMode
             // 
@@ -285,15 +219,11 @@
             this.ClientSize = new System.Drawing.Size(403, 542);
             this.Controls.Add(this.txtGuestName);
             this.Controls.Add(this.cbbBillMode);
-            this.Controls.Add(this.txtBillID);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmployeeID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtBillValue);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtGuestID);
-            this.Controls.Add(this.txtBillDay);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDellBill);
@@ -311,16 +241,12 @@
         public Guna.UI2.WinForms.Guna2TextBox txtBillValue;
         public System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2TextBox txtGuestID;
-        public Guna.UI2.WinForms.Guna2TextBox txtBillDay;
-        public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label2;
         public Guna.UI2.WinForms.Guna2Button btnDellBill;
         public Guna.UI2.WinForms.Guna2TextBox txtEmployeeID;
-        public Guna.UI2.WinForms.Guna2TextBox txtBillID;
-        public System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbBillMode;
         public System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2TextBox txtGuestName;
+        public Guna.UI2.WinForms.Guna2ComboBox cbbBillMode;
     }
 }
