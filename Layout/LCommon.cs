@@ -67,6 +67,7 @@ namespace HotelManagementSystemProject.Layout
                     lblAddObject.Text = "Add Guest";
                     dtgvObject.DataSource = getAllGuest();
                     fAddGuest.LoadHeaderCustomer(dtgvObject);
+
                     fAddGuest.DanhSachGioiTinh(cbbType);
                     cbbStatus.Visible = false;
                     container(new FAddGuest());
@@ -190,6 +191,7 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
+
         private void getAllFood()
         {
             db.openConnection();

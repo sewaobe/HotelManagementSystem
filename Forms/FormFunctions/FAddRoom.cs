@@ -17,6 +17,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
     public partial class FAddRoom : Form
     {
         DBConnection db = new DBConnection();
+        public event Action<string> SearchTextChanged;
         public bool isEditing = false;
         public FAddRoom()
         {
@@ -29,6 +30,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             cbStatus.SelectedItem = "Phòng trống";
             cbStatus.Enabled = false;
             txtID.Text = GetNextRoomID().ToString();
+            txtSearch.TextChanged += txtSearch_TextChanged;
         }
         private void TextBox_Enter(object sender, EventArgs e)
         {
@@ -221,6 +223,21 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 MessageBox.Show("Sua thất bại", "Update Room", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 db.closeConnection();
             }
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchTextChanged?.Invoke(txtSearch.Text);
         }
     }
 }

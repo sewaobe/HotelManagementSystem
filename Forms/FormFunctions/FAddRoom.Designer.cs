@@ -96,7 +96,7 @@
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Location = new System.Drawing.Point(189, 31);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
@@ -157,7 +157,7 @@
             this.txtRoomDes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtRoomDes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtRoomDes.Location = new System.Drawing.Point(11, 170);
-            this.txtRoomDes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRoomDes.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoomDes.Name = "txtRoomDes";
             this.txtRoomDes.PasswordChar = '\0';
             this.txtRoomDes.PlaceholderText = "";
@@ -190,7 +190,7 @@
             this.txtRoomRate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtRoomRate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtRoomRate.Location = new System.Drawing.Point(11, 308);
-            this.txtRoomRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRoomRate.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoomRate.Name = "txtRoomRate";
             this.txtRoomRate.PasswordChar = '\0';
             this.txtRoomRate.PlaceholderText = "";
@@ -331,6 +331,7 @@
             this.label5.Size = new System.Drawing.Size(107, 18);
             this.label5.TabIndex = 35;
             this.label5.Text = "Room Status";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // FAddRoom
             // 
