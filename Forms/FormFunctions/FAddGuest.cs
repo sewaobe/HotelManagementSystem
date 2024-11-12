@@ -26,6 +26,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             txtPhone.Enter += TextBox_Enter;
             txtEmail.Enter += TextBox_Enter;
             cbSex.Enter += TextBox_Enter;
+            txtID.Text = GetNextGuestID().ToString();
         }
 
 
@@ -45,6 +46,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 {
                     MessageBox.Show("Thêm thành công!", "Add Guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     db.closeConnection();
+                    txtID.Text = GetNextGuestID().ToString();
                 }
                 else
                 {
@@ -58,6 +60,24 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             }
 
         }
+        private int GetNextGuestID()
+        {
+            int nextID = 1; // Giá trị mặc định nếu không có khách hàng nào trong database
+            db.openConnection();
+
+            // Truy vấn để lấy MaKH lớn nhất từ bảng KhachHang
+            SqlCommand cmd = new SqlCommand("SELECT MAX(MaKH) FROM KhachHang", db.getConnection);
+            object result = cmd.ExecuteScalar();
+
+            if (result != DBNull.Value)
+            {
+                nextID = Convert.ToInt32(result) + 1;
+            }
+
+            db.closeConnection();
+            return nextID;
+        }
+
         public void CustomerClicked(DataGridView dtgvObject, DataGridViewCellEventArgs e)
         {
             string customerID = dtgvObject.Rows[e.RowIndex].Cells["MaKH"].Value.ToString();
