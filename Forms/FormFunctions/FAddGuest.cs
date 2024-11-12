@@ -101,21 +101,42 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             txtEmail.Text = email;
             cbSex.Text = gender;
         }
+        public void DanhSachGioiTinh(ComboBox ccb)
+        {
+            try
+            {
+
+                db.openConnection();
+                string query = "select GioiTinh from view_DanhSachGioiTinh";
+                SqlCommand cmd = new SqlCommand(query, db.getConnection);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<string> roomIDs = new List<string>();
+                while (reader.Read())
+                {
+                    roomIDs.Add(reader["GioiTinh"].ToString());
+                }
+
+                ccb.DataSource = roomIDs;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading room IDs: " + ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
 
         public void LoadHeaderCustomer(DataGridView dtgvObject)
         {
-            dtgvObject.RowTemplate.Height = 40;
-            dtgvObject.ColumnHeadersHeight = 50;
-            dtgvObject.AllowUserToResizeRows = false;
-            dtgvObject.AllowUserToResizeColumns = false;
-
             dtgvObject.Columns[0].HeaderText = "Customer ID";
             dtgvObject.Columns[1].HeaderText = "Name";
             dtgvObject.Columns[2].HeaderText = "Address";
             dtgvObject.Columns[3].HeaderText = "Phone Number";
             dtgvObject.Columns[4].HeaderText = "Email";
             dtgvObject.Columns[5].HeaderText = "Gender";
-            dtgvObject.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
         }
         private void TextBox_Enter(object sender, EventArgs e)
         {
@@ -186,22 +207,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         {
 
         }
-        public void ResetForm()
-        {
-            // Reset all textboxes
-            txtID.Text = string.Empty;
-            txtName.Text = string.Empty;
-            txtAddress.Text = string.Empty;
-            txtPhone.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            cbSex.SelectedIndex = -1;
-
-            // Hide edit/delete buttons, show add button
-            btnEditGuest.Visible = false;
-            btnDelete.Visible = false;
-            btnAddGuest.Visible = true;
-            btnCancel.Visible = false;
-        }
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // Hiển thị thông báo xác nhận

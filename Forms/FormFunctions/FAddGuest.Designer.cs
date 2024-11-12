@@ -134,9 +134,9 @@
             this.cbSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbSex.ItemHeight = 30;
             this.cbSex.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Other"});
+            "Nam ",
+            "Nữ ",
+            "Khác"});
             this.cbSex.Location = new System.Drawing.Point(204, 39);
             this.cbSex.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSex.Name = "cbSex";

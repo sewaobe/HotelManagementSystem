@@ -15,6 +15,7 @@ namespace HotelManagementSystemProject.Layout
     public partial class LCommon : Form
     {
         FAddGuest fAddGuest = new FAddGuest();
+        FAddReservation fAddReservation = new FAddReservation();
         DBConnection db = new DBConnection();
         private void container(object form)
         {
@@ -55,6 +56,8 @@ namespace HotelManagementSystemProject.Layout
                     lblAddObject.Text = "Add Guest";
                     dtgvObject.DataSource = getAllGuest();
                     fAddGuest.LoadHeaderCustomer(dtgvObject);
+                    fAddGuest.DanhSachGioiTinh(cbbType);
+                    cbbStatus.Visible = false;
                     container(new FAddGuest());
                     break;
                 case "Employee":
@@ -65,11 +68,13 @@ namespace HotelManagementSystemProject.Layout
                     break;
                 case "Reservation":
                     lblNameObject.Text = "Reservation";
-                    lblAddObject.Text = "Re";
+                    lblAddObject.Text = "Add reservation";
+                    dtgvObject.DataSource = getAllReservation();
+                    dtgvObject.Columns["MaKH"].Visible = false;
+                    fAddReservation.LoadHeaderReservation(dtgvObject);
+                    cbbStatus.Visible = false;
+                    fAddReservation.DanhSachLoaiPhong(cbbType);
                     container(new FAddReservation());
-/*                    dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
- *                    
-*/
                     break;
                 case "Restaurant":
                     lblNameObject.Text = "Food List";
@@ -120,7 +125,16 @@ namespace HotelManagementSystemProject.Layout
                     break;
             }
         }
-        
+        private DataTable getAllReservation()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiPhongDatTruoc", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
         private DataTable getAllEmployee()
         {
             db.openConnection();
@@ -175,19 +189,45 @@ namespace HotelManagementSystemProject.Layout
 
         private void dtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
-            {
-                // Reset form về trạng thái ban đầu
-                fAddGuest = new FAddGuest(); // Tạo form mới
-                lblAddObject.Text = "Add Guest";
-                container(fAddGuest);
-                return;
-            }
+            
 
-            // Xử lý click vào dòng dữ liệu
-            fAddGuest.CustomerClicked(dtgvObject, e);
-            lblAddObject.Text = "Save guest";
-            container(fAddGuest);
+            switch (lblNameObject.Text)
+            {
+                case "Guests": 
+                    if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
+                    {
+                        // Reset form về trạng thái ban đầu
+                        fAddGuest = new FAddGuest(); // Tạo form mới
+                        lblAddObject.Text = "Add Guest";
+                        container(fAddGuest);
+                        return;
+                    }
+
+                    // Xử lý click vào dòng dữ liệu
+                    fAddGuest.CustomerClicked(dtgvObject, e);
+                    lblAddObject.Text = "Save guest";
+                    container(fAddGuest);
+                    
+                    break; // Added the break to avoid fall-through
+
+                case "Reservation":
+                    if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
+                    {
+                        // Reset form về trạng thái ban đầu
+                        fAddReservation = new FAddReservation(); // Tạo form mới
+                        lblAddObject.Text = "Add reservation";
+                        container(fAddReservation);
+                        return;
+                    }
+
+                    // Xử lý click vào dòng dữ liệ
+                    lblAddObject.Text = "Save reservation";
+                    fAddReservation.ReservationClicked(dtgvObject, e);
+                    container(fAddReservation);
+                    break; // Added the break to avoid f
+                default:
+                    break; // Ensure that default also terminates
+            }
         }
     }
 }
