@@ -23,6 +23,7 @@ namespace HotelManagementSystemProject.Layout
         DBConnection db = new DBConnection();
         FAddEmployee fAddEmployee = new FAddEmployee();
         FAddWork fAddWork = new FAddWork();
+        FAddRoom fAddRoom = new FAddRoom();
         FWorkTime fWorkTime = new FWorkTime();
         FAddFood fAddFood = new FAddFood();
         FAddCategory fAddCategory = new FAddCategory();
@@ -66,6 +67,7 @@ namespace HotelManagementSystemProject.Layout
                     lblAddObject.Text = "Add Guest";
                     dtgvObject.DataSource = getAllGuest();
                     fAddGuest.LoadHeaderCustomer(dtgvObject);
+
                     fAddGuest.DanhSachGioiTinh(cbbType);
                     cbbStatus.Visible = false;
                     container(new FAddGuest());
@@ -189,6 +191,7 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
+
         private void getAllFood()
         {
             db.openConnection();
@@ -388,13 +391,29 @@ namespace HotelManagementSystemProject.Layout
                         container(fWorkTime);
                         break;
                     }
+                case "Rooms":
+                    if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
+                    {
+                        // Reset form về trạng thái ban đầu
+                       fAddRoom = new FAddRoom();
+                        lblAddObject.Text = "Add Room";
+                        container(fAddRoom);
+                        return;
+                    }
 
+                    // Xử lý click vào dòng dữ liệu
+                    fAddRoom.RoomClicked(dtgvObject, e);
+                    lblAddObject.Text = "Save room";
+                    container(fAddRoom);
+                    break;
                 default:
                     break; // Ensure that default also terminates
             }
         }
+        private void dtgvObject_Click(object sender, EventArgs e)
+        {
 
-       
+        }
     }
 
 
