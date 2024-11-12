@@ -35,6 +35,7 @@
             this.txtWorkName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtWorkID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnEditWork = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // txtWorkRate
@@ -147,11 +148,28 @@
             this.txtWorkID.Size = new System.Drawing.Size(160, 36);
             this.txtWorkID.TabIndex = 18;
             // 
+            // btnEditWork
+            // 
+            this.btnEditWork.BorderRadius = 10;
+            this.btnEditWork.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditWork.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditWork.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditWork.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditWork.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditWork.ForeColor = System.Drawing.Color.Black;
+            this.btnEditWork.Location = new System.Drawing.Point(203, 473);
+            this.btnEditWork.Name = "btnEditWork";
+            this.btnEditWork.Size = new System.Drawing.Size(187, 45);
+            this.btnEditWork.TabIndex = 20;
+            this.btnEditWork.Text = "Save Work";
+            this.btnEditWork.Click += new System.EventHandler(this.btnEditWork_Click);
+            // 
             // FAddWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 542);
+            this.Controls.Add(this.btnEditWork);
             this.Controls.Add(this.txtWorkID);
             this.Controls.Add(this.txtWorkRate);
             this.Controls.Add(this.label4);
@@ -176,5 +194,6 @@
         public Guna.UI2.WinForms.Guna2TextBox txtWorkName;
         public System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2TextBox txtWorkID;
+        public Guna.UI2.WinForms.Guna2Button btnEditWork;
     }
 }

@@ -18,6 +18,9 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         public FAddWork()
         {
             InitializeComponent();
+            btnAddWork.Visible = true;
+            btnEditWork.Visible = false;
+            //btnRemoveWork.Visible = false;
         }
 
         private void btnAddWork_Click(object sender, EventArgs e)
@@ -57,22 +60,27 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 db.closeConnection();
             }
         }
-        private void btnRemoveWork_Click(object sender, EventArgs e)
+
+
+
+        public void PanddingWork(String MaCV, String TenCV, String Luong)
         {
-            db.openConnection();
-            SqlCommand cmd = new SqlCommand("XoaCongViec", db.getConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@MaCV", SqlDbType.Int).Value = txtWorkID.Text;
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                MessageBox.Show("Xoa thành công!", "Remove Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                db.closeConnection();
-            }
-            else
-            {
-                MessageBox.Show("Xoa thất bại", "Remove Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                db.closeConnection();
-            }
+            txtWorkID.Text = MaCV;
+            txtWorkName.Text = TenCV;   
+            txtWorkRate.Text = Luong;
+        }
+
+        public void WorkClicked(DataGridView dataGridView, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+            String MaCv = row.Cells["MaCV"].Value.ToString();
+            String TenCV = row.Cells["TenCV"].Value.ToString();
+            String Luong = row.Cells["Luong"].Value.ToString();
+            PanddingWork(MaCv, TenCV, Luong);
+
+            btnAddWork.Visible = false;
+            btnEditWork.Visible = true;    
+
         }
     }
 }

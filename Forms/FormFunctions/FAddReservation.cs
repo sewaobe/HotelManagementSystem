@@ -16,6 +16,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
     {
         DBConnection db = new DBConnection();
         bool isEditing = false;
+        string maHD = "";
         public FAddReservation()
         {
             InitializeComponent();
@@ -77,8 +78,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             string SoDienThoai = dtgvObject.Rows[e.RowIndex].Cells["SoDienThoai"].Value.ToString();
             string NgayNhanPhong = dtgvObject.Rows[e.RowIndex].Cells["NgayNhanPhong"].Value.ToString();
             string NgayTraPhong = dtgvObject.Rows[e.RowIndex].Cells["NgayTraPhong"].Value.ToString();
-            txtGuestID.Enabled = false;
-
+            maHD = dtgvObject.Rows[e.RowIndex].Cells["MaHD"].Value.ToString();
             // Thiết lập thông tin trên form
             SetReservationInfo(MaKhachHang, MaPhong, TenKhachHang, SoDienThoai, NgayNhanPhong, NgayTraPhong);
 
@@ -87,6 +87,8 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
 
             // Đặt mã phòng vào ComboBox sau khi đã cập nhật dữ liệu nguồn
             cbRoomID.Text = MaPhong;
+            cbRoomID.Enabled = false;
+            txtGuestID.Enabled = false;
 
             // Hiển thị nút chỉnh sửa và ẩn nút thêm
             btnAddGuest.Visible = false;
@@ -103,7 +105,8 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             dtgvObject.Columns[4].HeaderText = "Số điện thoại";
             dtgvObject.Columns[5].HeaderText = "Ngày nhận phòng";
             dtgvObject.Columns[6].HeaderText = "Ngày trả phòng";
-            dtgvObject.Columns[7].HeaderText = "Trạng thái";
+            dtgvObject.Columns[7].HeaderText = "Mã hóa đơn";
+            dtgvObject.Columns[8].HeaderText = "Trạng thái";
         }
         private void LoadRoomIDsNotOrdered()
         {
@@ -194,17 +197,14 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             {
                 db.openConnection();
 
-                SqlCommand cmd = new SqlCommand("proc_ChinhSuaDatPhong", db.getConnection);
+                SqlCommand cmd = new SqlCommand("proc_suaChiTietHDP", db.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Pass parameters to the stored procedure
-                cmd.Parameters.Add("@MaKH", SqlDbType.Int).Value = int.Parse(txtGuestID.Text);
+                cmd.Parameters.Add("@MaHD", SqlDbType.Int).Value = int.Parse(maHD);
                 cmd.Parameters.Add("@MaPhong", SqlDbType.Int).Value = int.Parse(cbRoomID.SelectedValue.ToString());
-                cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
-                cmd.Parameters.Add("@SoDienThoai", SqlDbType.VarChar).Value = txtPhone.Text;
                 cmd.Parameters.Add("@NgayNhanPhong", SqlDbType.DateTime).Value = DateTime.Parse(txtCheckin.Text);
                 cmd.Parameters.Add("@NgayTraPhong", SqlDbType.DateTime).Value = DateTime.Parse(txtCheckout.Text);
-
                 // Execute the stored procedure
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
@@ -291,9 +291,10 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy đặt phòng này không?", "Remove reservation", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("proc_HuyDatPhong", db.getConnection);
+                    SqlCommand cmd = new SqlCommand("proc_xoaChiTietHDP", db.getConnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = cbRoomID.Text;
+                    MessageBox.Show(cbRoomID.Text);
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() > 0)
                     {
@@ -332,7 +333,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
 
                 // Hiển thị thông báo đã hủy
                 MessageBox.Show("Đã hủy thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                this.Close();
             }
         }
 
@@ -395,6 +396,10 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             }
         }
 
+        private void cbRoomID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
