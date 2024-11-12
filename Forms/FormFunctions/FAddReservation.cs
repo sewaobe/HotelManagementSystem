@@ -366,14 +366,14 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 }
 
                 // Gọi stored procedure để thêm đặt phòng
-                SqlCommand cmd = new SqlCommand("proc_AddReservation", db.getConnection);
+                SqlCommand cmd = new SqlCommand("proc_ThemHoaDon", db.getConnection);
+
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaNV", 1); //Sửa lại MaNV
                 cmd.Parameters.AddWithValue("@MaKH", MaKH);
-                cmd.Parameters.AddWithValue("@HoTenKH", name);
-                cmd.Parameters.AddWithValue("@SoDienThoai", phone);
-                cmd.Parameters.AddWithValue("@NgayNhanPhong", checkInDateTime);
-                cmd.Parameters.AddWithValue("@NgayTraPhong", checkOutDateTime);
-                cmd.Parameters.AddWithValue("@MaPhong", int.Parse(roomID));
+                cmd.Parameters.AddWithValue("@MaPhong", roomID);
+                cmd.Parameters.AddWithValue("@ThoiGianNhanPhong", DateTime.Parse(checkInDate));
+                cmd.Parameters.AddWithValue("@ThoiGianTraPhong", DateTime.Parse(checkOutDate));
 
                 // Thực thi stored procedure
                 if (cmd.ExecuteNonQuery() > 0)
