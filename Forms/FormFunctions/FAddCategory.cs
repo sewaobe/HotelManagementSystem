@@ -80,7 +80,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            //try
             {
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa loai dich vu này không?", "Remove service", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
@@ -104,11 +104,11 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                     btnSave.Visible = false;
                 }
             }
-            catch
+            //catch
             {
                 MessageBox.Show("Xóa thất bại!", "Remove Category", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally { db.closeConnection(); }
+            //finally { db.closeConnection(); }
         }
     }
 }
