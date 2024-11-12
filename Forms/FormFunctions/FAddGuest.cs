@@ -31,23 +31,30 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
 
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
-            db.openConnection();
-            SqlCommand cmd = new SqlCommand("ThemKhachHang", db.getConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
-            cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = txtAddress.Text;
-            cmd.Parameters.Add("@SoDienThoai", SqlDbType.VarChar).Value = txtPhone.Text;
-            cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
-            cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar).Value = cbSex.Text;
-            if (cmd.ExecuteNonQuery() > 0)
+            try
             {
-                MessageBox.Show("Thêm thành công!", "Add Guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                db.closeConnection();
+                db.openConnection();
+                SqlCommand cmd = new SqlCommand("proc_ThemKhachHang", db.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
+                cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = txtAddress.Text;
+                cmd.Parameters.Add("@SoDienThoai", SqlDbType.VarChar).Value = txtPhone.Text;
+                cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
+                cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar).Value = cbSex.Text;
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Thêm thành công!", "Add Guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.closeConnection();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại", "Add Guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    db.closeConnection();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Thêm thất bại", "Add Guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                db.closeConnection();
+                MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -66,24 +73,32 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         }
         private void btnEditGuest_Click(object sender, EventArgs e)
         {
-            db.openConnection();
-            SqlCommand cmd = new SqlCommand("ChinhSuaKhachHang", db.getConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
-            cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
-            cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = txtAddress.Text;
-            cmd.Parameters.Add("@SoDienThoai", SqlDbType.VarChar).Value = txtPhone.Text;
-            cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
-            cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar).Value = cbSex.Text;
-            if (cmd.ExecuteNonQuery() > 0)
+            try
             {
-                MessageBox.Show("Sua thành công!", "Update Guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                db.closeConnection();
+
+                db.openConnection();
+                SqlCommand cmd = new SqlCommand("proc_ChinhSuaKhachHang", db.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
+                cmd.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtName.Text;
+                cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = txtAddress.Text;
+                cmd.Parameters.Add("@SoDienThoai", SqlDbType.VarChar).Value = txtPhone.Text;
+                cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
+                cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar).Value = cbSex.Text;
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Sua thành công!", "Update Guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.closeConnection();
+                }
+                else
+                {
+                    MessageBox.Show("Sua thất bại", "Update Guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    db.closeConnection();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sua thất bại", "Update Guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                db.closeConnection();
+                MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnRemoveGuest_Click(object sender, EventArgs e)
@@ -239,7 +254,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này không?", "Remove guest", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("XoaKhachHang", db.getConnection);
+                    SqlCommand cmd = new SqlCommand("proc_XoaKhachHang", db.getConnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
                     db.openConnection();
@@ -255,9 +270,9 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Xóa thất bại!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

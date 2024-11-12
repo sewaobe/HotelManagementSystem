@@ -159,9 +159,9 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 db.closeConnection();
             }
         }
-            private void LoadRoomIDs()
+        private void LoadRoomIDs()
         {
-            
+
             try
             {
                 db.openConnection();
@@ -187,13 +187,14 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             }
         }
 
+
         private void btnEditReservation_Click(object sender, EventArgs e)
         {
             try
             {
                 db.openConnection();
 
-                SqlCommand cmd = new SqlCommand("sp_ChinhSuaDatPhong", db.getConnection);
+                SqlCommand cmd = new SqlCommand("proc_ChinhSuaDatPhong", db.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Pass parameters to the stored procedure
@@ -290,7 +291,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy đặt phòng này không?", "Remove reservation", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
-                    SqlCommand cmd = new SqlCommand("sp_HuyDatPhong", db.getConnection);
+                    SqlCommand cmd = new SqlCommand("proc_HuyDatPhong", db.getConnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = cbRoomID.Text;
                     db.openConnection();
@@ -338,24 +339,42 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnAddReservation_Click(object sender, EventArgs e)
         {
             string MaKH = txtGuestID.Text;
-            // Kiểm tra thông tin đầu vào
             string phone = txtPhone.Text;
             string name = txtName.Text;
             string checkInDate = txtCheckin.Text;
             string checkOutDate = txtCheckout.Text;
             string roomID = cbRoomID.Text;
+
             try
             {
                 db.openConnection();
 
+                // Kiểm tra và chuyển đổi định dạng ngày tháng
+                DateTime checkInDateTime;
+                DateTime checkOutDateTime;
+
+                bool isCheckInValid = DateTime.TryParseExact(
+                    checkInDate, "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out checkInDateTime);
+
+                bool isCheckOutValid = DateTime.TryParseExact(
+                    checkOutDate, "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out checkOutDateTime);
+
+                if (!isCheckInValid || !isCheckOutValid)
+                {
+                    MessageBox.Show("Định dạng ngày giờ không hợp lệ. Vui lòng nhập đúng định dạng yyyy-MM-dd HH:mm:ss.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Gọi stored procedure để thêm đặt phòng
                 SqlCommand cmd = new SqlCommand("proc_ThemHoaDon", db.getConnection);
+
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MaNV", 1); //Sửa lại MaNV
                 cmd.Parameters.AddWithValue("@MaKH", MaKH);
                 cmd.Parameters.AddWithValue("@MaPhong", roomID);
                 cmd.Parameters.AddWithValue("@ThoiGianNhanPhong", DateTime.Parse(checkInDate));
                 cmd.Parameters.AddWithValue("@ThoiGianTraPhong", DateTime.Parse(checkOutDate));
+
                 // Thực thi stored procedure
                 if (cmd.ExecuteNonQuery() > 0)
                 {
