@@ -48,6 +48,7 @@
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.dtgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dtgvObject.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,6 +89,7 @@
             this.dtgvObject.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgvObject.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
 
+
             this.dtgvObject.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvObject.ThemeStyle.HeaderStyle.Height = 22;
             this.dtgvObject.ThemeStyle.ReadOnly = true;
@@ -98,6 +100,7 @@
             this.dtgvObject.ThemeStyle.RowsStyle.Height = 28;
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+
             this.dtgvObject.Click += new System.EventHandler(this.dtgvObject_Click);
             this.dtgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvObject_CellClick);
             // 
@@ -183,6 +186,7 @@
             this.panelAddObject.Location = new System.Drawing.Point(1174, 76);
             this.panelAddObject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelAddObject.Name = "panelAddObject";
+
             this.panelAddObject.Size = new System.Drawing.Size(269, 352);
             this.panelAddObject.TabIndex = 8;
             // 

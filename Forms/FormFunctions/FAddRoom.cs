@@ -27,7 +27,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             SqlCommand cmd = new SqlCommand("ThemPhong", db.getConnection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@LoaiPhong", SqlDbType.NVarChar).Value = cbType.Text;
-            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = "Empty";
+            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = "Phòng trống";
             cmd.Parameters.Add("@GiaPhong", SqlDbType.Decimal).Value = Decimal.Parse(txtRoomRate.Text);
             cmd.Parameters.Add("@MoTa", SqlDbType.NVarChar).Value = txtRoomDes.Text;
             if (cmd.ExecuteNonQuery() > 0)
