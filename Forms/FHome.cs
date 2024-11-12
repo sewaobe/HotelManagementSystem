@@ -1,4 +1,5 @@
-﻿using HotelManagementSystemProject.Layout;
+﻿using HotelManagementSystemProject.Class;
+using HotelManagementSystemProject.Layout;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,10 @@ namespace HotelManagementSystemProject.Forms
     public partial class FHome : Form
     {
         DBConnection db = new DBConnection();
+        public static List<DichVuList> listDVList = new List<DichVuList>();
+        public static List<DichVu> listDV = new List<DichVu>();
 
+        public static Decimal tongTienDichVu = 0;
         public FHome()
         {
             InitializeComponent();
@@ -54,6 +58,7 @@ namespace HotelManagementSystemProject.Forms
         private void btnHome_Click(object sender, EventArgs e)
         {
             container(new LHome());
+
 
         }
 
@@ -164,6 +169,11 @@ namespace HotelManagementSystemProject.Forms
         private void btnCategory_Click(object sender, EventArgs e)
         {
             container(new LCommon("Category"));
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

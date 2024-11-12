@@ -18,7 +18,7 @@ namespace HotelManagementSystemProject.UC
     public partial class UCFood : UserControl
     {
         private FAddFood fAddFood;
-        private DichVu dv;
+        public DichVu dv;
         public UCFood()
         {
             InitializeComponent();
@@ -80,10 +80,6 @@ namespace HotelManagementSystemProject.UC
 
       
 
-        private void btnDatDV_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("btn đã đc click");
-        }
 
 
     }

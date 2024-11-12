@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtBillID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbbListService = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddListService = new Guna.UI2.WinForms.Guna2CircleButton();
             this.lblTotalServices = new System.Windows.Forms.Label();
@@ -175,6 +175,7 @@
             this.btnAddBill.Size = new System.Drawing.Size(180, 45);
             this.btnAddBill.TabIndex = 44;
             this.btnAddBill.Text = "Add bill";
+            this.btnAddBill.Click += new System.EventHandler(this.btnAddBill_Click);
             // 
             // label1
             // 
@@ -218,20 +219,20 @@
             this.label7.TabIndex = 54;
             this.label7.Text = "Bill ID";
             // 
-            // guna2ComboBox1
+            // cbbListService
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(16, 234);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(373, 36);
-            this.guna2ComboBox1.TabIndex = 59;
+            this.cbbListService.BackColor = System.Drawing.Color.Transparent;
+            this.cbbListService.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbListService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbListService.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbListService.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbListService.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbbListService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbListService.ItemHeight = 30;
+            this.cbbListService.Location = new System.Drawing.Point(16, 234);
+            this.cbbListService.Name = "cbbListService";
+            this.cbbListService.Size = new System.Drawing.Size(373, 36);
+            this.cbbListService.TabIndex = 59;
             // 
             // label4
             // 
@@ -276,7 +277,7 @@
             this.ClientSize = new System.Drawing.Size(403, 542);
             this.Controls.Add(this.lblTotalServices);
             this.Controls.Add(this.btnAddListService);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.cbbListService);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtGuestName);
             this.Controls.Add(this.txtBillID);
@@ -311,7 +312,7 @@
         public Guna.UI2.WinForms.Guna2TextBox txtBillID;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label4;
-        public Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        public Guna.UI2.WinForms.Guna2ComboBox cbbListService;
         public Guna.UI2.WinForms.Guna2CircleButton btnAddListService;
         public System.Windows.Forms.Label lblTotalServices;
     }

@@ -1,4 +1,5 @@
-﻿using HotelManagementSystemProject.Layout;
+﻿using HotelManagementSystemProject.Class;
+using HotelManagementSystemProject.Layout;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -16,6 +18,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
     public partial class FBills : Form
     {
         DBConnection db = new DBConnection();
+        public List<DichVu> listDv = new List<DichVu>();
 
         public FBills()
         {
@@ -83,6 +86,42 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             else
             {
                 txtGuestName.Clear();
+            }
+        }
+
+        private void btnAddBill_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.openConnection();
+
+                // Gọi stored procedure để thêm đặt phòng
+                SqlCommand cmd = new SqlCommand("proc_ThemDichVuVaCapNhatHoaDon", db.getConnection);
+                string jsonDichVuList = JsonSerializer.Serialize(FHome.listDVList);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaKH", txtGuestID.Text);
+                cmd.Parameters.AddWithValue("@MaNV", 1); //Sửa lại MaNV
+
+                cmd.Parameters.AddWithValue("@DVList", jsonDichVuList);
+
+
+                // Thực thi stored procedure
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Đặt dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Đặt dịch vụ thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                db.closeConnection();
             }
         }
     }
