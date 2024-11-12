@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelManagementSystemProject.Layout;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,20 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
     public partial class FAddGuest : Form
     {
         DBConnection db = new DBConnection();
+        public bool isEditing = false;
         public FAddGuest()
         {
             InitializeComponent();
+
+            // Gán sự kiện Enter cho các TextBox
+            txtName.Enter += TextBox_Enter;
+            txtAddress.Enter += TextBox_Enter;
+            txtPhone.Enter += TextBox_Enter;
+            txtEmail.Enter += TextBox_Enter;
+            cbSex.Enter += TextBox_Enter;
         }
-       
+
+
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
             db.openConnection();
@@ -39,6 +49,20 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 MessageBox.Show("Thêm thất bại", "Add Guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 db.closeConnection();
             }
+
+        }
+        public void CustomerClicked(DataGridView dtgvObject, DataGridViewCellEventArgs e)
+        {
+            string customerID = dtgvObject.Rows[e.RowIndex].Cells["MaKH"].Value.ToString();
+            string name = dtgvObject.Rows[e.RowIndex].Cells["HoTenKH"].Value.ToString();
+            string address = dtgvObject.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+            string phone = dtgvObject.Rows[e.RowIndex].Cells["SoDienThoai"].Value.ToString();
+            string email = dtgvObject.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            string gender = dtgvObject.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
+            SetGuestInfo(customerID, name, address, phone, email, gender);
+            btnAddGuest.Visible = false;
+            btnEditGuest.Visible = true;
+            btnDelete.Visible = true;
         }
         private void btnEditGuest_Click(object sender, EventArgs e)
         {
@@ -65,30 +89,58 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         private void btnRemoveGuest_Click(object sender, EventArgs e)
         {
            
+            
+        }
+        public void SetGuestInfo(string id, string name, string address, string phone, string email, string gender)
+        {
+            // Đổ dữ liệu vào các textbox và combobox
+            txtID.Text = id;
+            txtName.Text = name;
+            txtAddress.Text = address;
+            txtPhone.Text = phone;
+            txtEmail.Text = email;
+            cbSex.Text = gender;
+        }
+        public void DanhSachGioiTinh(ComboBox ccb)
+        {
             try
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này không?", "Remove guest", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (result == DialogResult.Yes)
+
+                db.openConnection();
+                string query = "select GioiTinh from view_DanhSachGioiTinh";
+                SqlCommand cmd = new SqlCommand(query, db.getConnection);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<string> roomIDs = new List<string>();
+                while (reader.Read())
                 {
-                    SqlCommand cmd = new SqlCommand("XoaKhachHang", db.getConnection);
-                    cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
-                    db.openConnection();
-                    if (cmd.ExecuteNonQuery() == -1)
-                    {
-                        MessageBox.Show("Xóa thành công!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        db.closeConnection();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        db.closeConnection();
-                    }
+                    roomIDs.Add(reader["GioiTinh"].ToString());
                 }
+
+                ccb.DataSource = roomIDs;
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Xóa thất bại!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading room IDs: " + ex.Message);
             }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
+        public void LoadHeaderCustomer(DataGridView dtgvObject)
+        {
+            dtgvObject.Columns[0].HeaderText = "Customer ID";
+            dtgvObject.Columns[1].HeaderText = "Name";
+            dtgvObject.Columns[2].HeaderText = "Address";
+            dtgvObject.Columns[3].HeaderText = "Phone Number";
+            dtgvObject.Columns[4].HeaderText = "Email";
+            dtgvObject.Columns[5].HeaderText = "Gender";
+        }
+        private void TextBox_Enter(object sender, EventArgs e)
+        {
+            btnCancel.Visible = true;
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
@@ -155,5 +207,59 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
         {
 
         }
+        
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Hiển thị thông báo xác nhận
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Hủy thao tác", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Xóa toàn bộ thông tin đã nhập
+                txtID.Text = string.Empty;
+                txtName.Text = string.Empty;
+                txtAddress.Text = string.Empty;
+                txtPhone.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                cbSex.SelectedIndex = -1;  // Bỏ chọn trong ComboBox
+
+                // Ẩn nút hủy sau khi đã xóa thông tin
+                btnCancel.Visible = false;
+
+                // Hiển thị thông báo đã hủy
+                MessageBox.Show("Đã hủy thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này không?", "Remove guest", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (result == DialogResult.Yes)
+                {
+                    SqlCommand cmd = new SqlCommand("XoaKhachHang", db.getConnection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@MaKH", SqlDbType.Int, 10).Value = txtID.Text;
+                    db.openConnection();
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        db.closeConnection();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        db.closeConnection();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Xóa thất bại!", "Remove guest", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+
