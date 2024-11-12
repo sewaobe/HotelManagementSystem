@@ -14,6 +14,7 @@ namespace HotelManagementSystemProject.Layout
 {
     public partial class LCommon : Form
     {
+        FBills fBills = new FBills();
         FAddGuest fAddGuest = new FAddGuest();
         FAddReservation fAddReservation = new FAddReservation();
         DBConnection db = new DBConnection();
@@ -90,14 +91,14 @@ namespace HotelManagementSystemProject.Layout
 */
                     container(new FAddCategory());
                     break;
+
                 case "Bills History":
                     lblNameObject.Text = "Bills History";
                     lblAddObject.Text = "Detail Bill";
-                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
- *                    
-*/
+                    dtgvObject.DataSource = getAllBillHistory(); 
                     container(new FBillDetail());
                     break;
+
                 case "Works":
                     lblNameObject.Text = "Works";
                     lblAddObject.Text = "Add Work";
@@ -117,9 +118,15 @@ namespace HotelManagementSystemProject.Layout
                 case "Bill":
                     lblNameObject.Text = "Bills";
                     lblAddObject.Text = "Add bill";
-                    /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview
- *                    
-*/
+                    dtgvObject.DataSource = getAllBill();
+                    dtgvObject.Columns["MaNV"].Visible = false;
+                    dtgvObject.Columns["MaKH"].Visible = false;
+                    container(new FBills());
+                    break;
+
+                case "Add service list":
+                    lblNameObject.Text = "List service";
+                    lblAddObject.Text = "Information Service Using";
                     break;
                 default:
                     break;
@@ -185,7 +192,26 @@ namespace HotelManagementSystemProject.Layout
             db.closeConnection();
             return dataTable;
         }
-
+        private DataTable getAllBill()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiHoaDonDangSuDung", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
+        private DataTable getAllBillHistory()
+        {
+            db.openConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM view_HienThiLichSuHoaDon", db.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            db.closeConnection();
+            return dataTable;
+        }
 
         private void dtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -225,9 +251,17 @@ namespace HotelManagementSystemProject.Layout
                     fAddReservation.ReservationClicked(dtgvObject, e);
                     container(fAddReservation);
                     break; // Added the break to avoid f
+
+                case "Bills":
+                    fBills.BillsClicked(dtgvObject, e);
+                    container(fBills);
+                    break;
+
                 default:
                     break; // Ensure that default also terminates
             }
         }
+
+       
     }
 }

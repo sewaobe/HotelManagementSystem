@@ -30,7 +30,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             cmd.Parameters.Add("@Ngay", SqlDbType.Date).Value = txtBillDay.Text;
             cmd.Parameters.Add("@PhuongThuc", SqlDbType.NVarChar).Value = cbbBillMode.Text;
             cmd.Parameters.Add("@TriGiaHD", SqlDbType.NVarChar).Value = txtBillValue.Text;
-            cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = cbbBillStatus.Text;
             if (cmd.ExecuteNonQuery() > 0)
             {
                 MessageBox.Show("Thêm thành công!", "Add Bill", MessageBoxButtons.OK, MessageBoxIcon.Information);
