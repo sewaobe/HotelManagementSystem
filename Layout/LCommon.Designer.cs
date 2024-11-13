@@ -45,18 +45,6 @@
             // dtgvObject
             // 
             this.dtgvObject.AllowUserToResizeColumns = false;
-
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dtgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dtgvObject.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvObject.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvObject.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
@@ -80,7 +68,6 @@
             this.dtgvObject.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvObject.Location = new System.Drawing.Point(45, 117);
             this.dtgvObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-
             this.dtgvObject.Name = "dtgvObject";
             this.dtgvObject.ReadOnly = true;
             this.dtgvObject.RowHeadersVisible = false;
@@ -88,7 +75,6 @@
             this.dtgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvObject.RowTemplate.Height = 28;
             this.dtgvObject.Size = new System.Drawing.Size(1078, 809);
-
             this.dtgvObject.TabIndex = 2;
             this.dtgvObject.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgvObject.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -112,7 +98,6 @@
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvObject.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvObject_CellClick);
-            this.dtgvObject.Click += new System.EventHandler(this.dtgvObject_Click);
             // 
             // lblNameObject
             // 
@@ -121,7 +106,6 @@
             this.lblNameObject.Location = new System.Drawing.Point(26, 28);
             this.lblNameObject.Name = "lblNameObject";
             this.lblNameObject.Size = new System.Drawing.Size(188, 29);
-
             this.lblNameObject.TabIndex = 3;
             this.lblNameObject.Text = "lblNameObject";
             // 
@@ -137,17 +121,11 @@
             this.cbbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbType.ItemHeight = 30;
             this.cbbType.Items.AddRange(new object[] {
-
-            "All Type",
-            "Single Bed",
-            "Double Bed",
-            "Queen Bed",
-            "Luxury King"});
+            "ALL"});
             this.cbbType.Location = new System.Drawing.Point(594, 28);
             this.cbbType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbbType.Name = "cbbType";
             this.cbbType.Size = new System.Drawing.Size(268, 36);
-
             this.cbbType.StartIndex = 0;
             this.cbbType.TabIndex = 5;
             // 
@@ -163,18 +141,11 @@
             this.cbbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbStatus.ItemHeight = 30;
             this.cbbStatus.Items.AddRange(new object[] {
-
-            "All Status",
-            "Cleaning",
-            "Dirty",
-            "Available",
-            "Reserved",
-            "Occupied"});
+            "ALL"});
             this.cbbStatus.Location = new System.Drawing.Point(915, 28);
             this.cbbStatus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(182, 36);
-
             this.cbbStatus.StartIndex = 0;
             this.cbbStatus.TabIndex = 6;
             // 
@@ -185,7 +156,6 @@
             this.lblAddObject.Location = new System.Drawing.Point(1160, 28);
             this.lblAddObject.Name = "lblAddObject";
             this.lblAddObject.Size = new System.Drawing.Size(165, 29);
-
             this.lblAddObject.TabIndex = 7;
             this.lblAddObject.Text = "lblAddObject";
             // 
@@ -194,12 +164,10 @@
             this.panelAddObject.BackColor = System.Drawing.Color.White;
             this.panelAddObject.BorderRadius = 20;
             this.panelAddObject.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-
             this.panelAddObject.Location = new System.Drawing.Point(1165, 85);
             this.panelAddObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelAddObject.Name = "panelAddObject";
-            this.panelAddObject.Size = new System.Drawing.Size(403, 542);
-
+            this.panelAddObject.Size = new System.Drawing.Size(454, 599);
             this.panelAddObject.TabIndex = 8;
             // 
             // flowDV
@@ -209,7 +177,6 @@
             this.flowDV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowDV.Name = "flowDV";
             this.flowDV.Size = new System.Drawing.Size(1078, 800);
-
             this.flowDV.TabIndex = 9;
             this.flowDV.Visible = false;
             // 
@@ -241,7 +208,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1608, 942);
-
             this.Controls.Add(this.flowDV);
             this.Controls.Add(this.panelAddObject);
             this.Controls.Add(this.lblAddObject);
@@ -251,9 +217,7 @@
             this.Controls.Add(this.dtgvObject);
             this.Controls.Add(this.txtGuestID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-
             this.Name = "LCommon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LCommon";
