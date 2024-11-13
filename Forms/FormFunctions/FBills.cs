@@ -110,10 +110,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 {
                     MessageBox.Show("Đặt dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-                    MessageBox.Show("Đặt dịch vụ thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
             catch (Exception ex)
             {

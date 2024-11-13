@@ -117,7 +117,6 @@
             this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::HotelManagementSystemProject.Properties.Resources.OIP;
             this.btnSearch.Location = new System.Drawing.Point(1103, 19);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

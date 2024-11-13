@@ -294,7 +294,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                     SqlCommand cmd = new SqlCommand("proc_xoaChiTietHDP", db.getConnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@MaPhong", SqlDbType.Int, 10).Value = cbRoomID.Text;
-                    MessageBox.Show(cbRoomID.Text);
                     db.openConnection();
                     if (cmd.ExecuteNonQuery() > 0)
                     {
@@ -313,7 +312,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
                 MessageBox.Show("Xóa thất bại!", "Remove", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Hủy thao tác", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -114,6 +114,7 @@
             this.label6.Size = new System.Drawing.Size(32, 22);
             this.label6.TabIndex = 20;
             this.label6.Text = "(0)";
+            this.label6.Visible = false;
             // 
             // label5
             // 
@@ -125,6 +126,7 @@
             this.label5.Size = new System.Drawing.Size(32, 22);
             this.label5.TabIndex = 19;
             this.label5.Text = "(0)";
+            this.label5.Visible = false;
             // 
             // btnProceed
             // 
@@ -142,6 +144,7 @@
             this.btnProceed.Size = new System.Drawing.Size(142, 35);
             this.btnProceed.TabIndex = 18;
             this.btnProceed.Text = "Proceed";
+            this.btnProceed.Visible = false;
             // 
             // btnPrintSummary
             // 
@@ -159,6 +162,7 @@
             this.btnPrintSummary.Size = new System.Drawing.Size(196, 35);
             this.btnPrintSummary.TabIndex = 17;
             this.btnPrintSummary.Text = "Print summary";
+            this.btnPrintSummary.Visible = false;
             // 
             // guna2Panel7
             // 
@@ -167,6 +171,7 @@
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(485, 1);
             this.guna2Panel7.TabIndex = 16;
+            this.guna2Panel7.Visible = false;
             // 
             // guna2Panel6
             // 
@@ -175,6 +180,7 @@
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(485, 1);
             this.guna2Panel6.TabIndex = 15;
+            this.guna2Panel6.Visible = false;
             // 
             // guna2Panel5
             // 
@@ -183,6 +189,7 @@
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(485, 1);
             this.guna2Panel5.TabIndex = 14;
+            this.guna2Panel5.Visible = false;
             // 
             // label4
             // 
@@ -194,6 +201,7 @@
             this.label4.Size = new System.Drawing.Size(115, 22);
             this.label4.TabIndex = 13;
             this.label4.Text = "Total Charge";
+            this.label4.Visible = false;
             // 
             // label3
             // 
@@ -205,6 +213,7 @@
             this.label3.Size = new System.Drawing.Size(103, 22);
             this.label3.TabIndex = 12;
             this.label3.Text = "Service List";
+            this.label3.Visible = false;
             // 
             // label2
             // 
@@ -216,6 +225,7 @@
             this.label2.Size = new System.Drawing.Size(110, 22);
             this.label2.TabIndex = 11;
             this.label2.Text = "Guest Name";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -227,6 +237,7 @@
             this.label1.Size = new System.Drawing.Size(103, 22);
             this.label1.TabIndex = 10;
             this.label1.Text = "Room Type";
+            this.label1.Visible = false;
             // 
             // lblRoomID
             // 
@@ -238,6 +249,7 @@
             this.lblRoomID.Size = new System.Drawing.Size(79, 22);
             this.lblRoomID.TabIndex = 9;
             this.lblRoomID.Text = "Room ID";
+            this.lblRoomID.Visible = false;
             // 
             // txtGuestName
             // 
@@ -260,6 +272,7 @@
             this.txtGuestName.Size = new System.Drawing.Size(485, 36);
             this.txtGuestName.TabIndex = 8;
             this.txtGuestName.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtGuestName.Visible = false;
             // 
             // cbbRoomType
             // 
@@ -276,6 +289,7 @@
             this.cbbRoomType.Name = "cbbRoomType";
             this.cbbRoomType.Size = new System.Drawing.Size(205, 36);
             this.cbbRoomType.TabIndex = 7;
+            this.cbbRoomType.Visible = false;
             // 
             // cbbRoomID
             // 
@@ -292,6 +306,7 @@
             this.cbbRoomID.Name = "cbbRoomID";
             this.cbbRoomID.Size = new System.Drawing.Size(243, 36);
             this.cbbRoomID.TabIndex = 6;
+            this.cbbRoomID.Visible = false;
             // 
             // btnCheckOut
             // 
@@ -350,6 +365,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(563, 364);
             this.guna2Panel2.TabIndex = 20;
+            this.guna2Panel2.Visible = false;
             // 
             // lblRoomClean
             // 
@@ -361,6 +377,7 @@
             this.lblRoomClean.Size = new System.Drawing.Size(181, 32);
             this.lblRoomClean.TabIndex = 2;
             this.lblRoomClean.Text = "Room Clean";
+            this.lblRoomClean.Visible = false;
             // 
             // dtgvRoomClean
             // 
@@ -413,6 +430,7 @@
             this.dtgvRoomClean.ThemeStyle.RowsStyle.Height = 28;
             this.dtgvRoomClean.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgvRoomClean.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgvRoomClean.Visible = false;
             // 
             // guna2Panel1
             // 

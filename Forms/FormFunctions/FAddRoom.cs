@@ -30,7 +30,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             cbStatus.SelectedItem = "Phòng trống";
             cbStatus.Enabled = false;
             txtID.Text = GetNextRoomID().ToString();
-            txtSearch.TextChanged += txtSearch_TextChanged;
         }
         private void TextBox_Enter(object sender, EventArgs e)
         {
@@ -237,7 +236,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            SearchTextChanged?.Invoke(txtSearch.Text);
         }
     }
 }

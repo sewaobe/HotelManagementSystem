@@ -32,12 +32,12 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             cmd.Parameters.Add("@PhuongThuc", SqlDbType.NVarChar).Value = cbbBillMode.Text;
             if (cmd.ExecuteNonQuery() > 0)
             {
-                MessageBox.Show("Thêm thành công!", "Add Bill", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thanh toan thành công!", "Add Bill", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 db.closeConnection();
             }
             else
             {
-                MessageBox.Show("Thêm thất bại", "Add Bill", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thanh toan thất bại", "Add Bill", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 db.closeConnection();
             }
         }

@@ -61,8 +61,8 @@ namespace HotelManagementSystemProject.Forms
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            lCommon = new LCommon("Home");
-            container(lCommon);
+            
+            container(new LHome());
             searchCategory = "Home";
 
         }

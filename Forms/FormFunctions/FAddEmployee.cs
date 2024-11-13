@@ -182,6 +182,7 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             txtRecruitmentday.Text = dtpkRecDay.Value.ToString("dd/MM/yyyy");
         }
 
+
         private void txtRecruitmentday_Leave(object sender, EventArgs e)
         {
             DateTime dateValue;
@@ -251,9 +252,6 @@ namespace HotelManagementSystemProject.Forms.FormFunctions
             btnEditEmployee.Visible = true;
             btnRemoveEmployee.Visible = true;
         }
-
-
-
     }
 }
 

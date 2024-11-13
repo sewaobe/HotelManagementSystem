@@ -90,7 +90,9 @@ namespace HotelManagementSystemProject.Layout
 
                     fAddGuest.DanhSachGioiTinh(cbbType);
                     cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(new FAddGuest());
+                    
                     break;
                 case "Employee":
                     lblNameObject.Text = "Employee";
@@ -98,6 +100,8 @@ namespace HotelManagementSystemProject.Layout
                     dtgvObject.DataSource = getAllEmployee();
                     dtgvObject.Columns["MaNV"].Visible = false;
                     dtgvObject.Columns["MaCV"].Visible = false;
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(new FAddEmployee());
                     break;
                 case "Reservation":
@@ -109,6 +113,7 @@ namespace HotelManagementSystemProject.Layout
 
                     fAddReservation.LoadHeaderReservation(dtgvObject);
                     cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     fAddReservation.DanhSachLoaiPhong(cbbType);
                     container(new FAddReservation());
                     break;
@@ -118,7 +123,7 @@ namespace HotelManagementSystemProject.Layout
                     flowDV.Visible = true;
                     flowDV.AutoScroll = true;
                     dtgvObject.Visible = false;
-                    getAllFood();
+                    getAllFood(0);
                     cmd = new SqlCommand("SELECT * FROM View_LoaiDV", db.getConnection);
                      adapter = new SqlDataAdapter(cmd);
                      dataTable = new DataTable();
@@ -139,13 +144,17 @@ namespace HotelManagementSystemProject.Layout
                     /*dtgvObject.DataSource = getAllEmployee(); thêm hàm gọi tất cả dữ liệu từ database lên datagridview*/
                     dtgvObject.DataSource = getAllCategory();
                     dtgvObject.CellClick += DtgvObject_CellClick;
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(fAddCategory);
                     break;
 
                 case "Bills History":
                     lblNameObject.Text = "Bills History";
                     lblAddObject.Text = "Detail Bill";
-                    dtgvObject.DataSource = getAllBillHistory(); 
+                    dtgvObject.DataSource = getAllBillHistory();
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(new FBillDetail());
                     break;
 
@@ -153,6 +162,8 @@ namespace HotelManagementSystemProject.Layout
                     lblNameObject.Text = "Works";
                     lblAddObject.Text = "Add Work";
                     dtgvObject.DataSource = getDataCV();
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(new FAddWork());
                     break;
                 case "Work Time":
@@ -162,6 +173,8 @@ namespace HotelManagementSystemProject.Layout
                     dtgvObject.Columns["MaNV"].Visible = false;
                     dtgvObject.Columns["MaCV"].Visible = false;
                     dtgvObject.Columns["TenCV"].Visible = false;
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(new FWorkTime());
                     break;
                 case "Bill":
@@ -172,6 +185,8 @@ namespace HotelManagementSystemProject.Layout
                     dtgvObject.Columns["MaKH"].Visible = false;
                     fBills = new FBills();
                     fBills.btnAddListService.Click += btnAddListService_Click;
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     container(fBills);
 
                     break;
@@ -179,6 +194,8 @@ namespace HotelManagementSystemProject.Layout
                 case "Add service list":
                     lblNameObject.Text = "List service";
                     lblAddObject.Text = "Information Service Using";
+                    cbbStatus.Visible = false;
+                    cbbType.Visible = false;
                     break;
                 case "Check out":
                     lblNameObject.Text = "List service guest used";
@@ -212,10 +229,10 @@ namespace HotelManagementSystemProject.Layout
                 lCommon.flowDV.Visible = true;
                 lCommon.dtgvObject.Visible = false;
                 lCommon.container(new FAddListServices());
-               
+
                 lCommon.getAllFood(1);
                 lCommon.ShowDialog();
-                
+
                 fBills.lblTotalServices.Text = FHome.listDV.Count.ToString();
                 fBills.cbbListService.Items.Clear();
                 foreach (DichVu dv in FHome.listDV)
@@ -228,7 +245,7 @@ namespace HotelManagementSystemProject.Layout
             {
                 MessageBox.Show("Vui lòng nhập thông tin khách hàng xài dịch vụ");
             }
-           
+        }
 
         private void CbbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -279,7 +296,7 @@ namespace HotelManagementSystemProject.Layout
                     }
                     foreach (DichVu dichVu in listDichVu)
                     {
-                        UCFood uc = new UCFood(dichVu);
+                        UCFood uc = new UCFood(dichVu, 0);
                         //panelAddObject.Controls.Clear();
                         //FAddFood form = new FAddFood();
                         uc.SetFormFood(fAddFood);
@@ -385,7 +402,7 @@ namespace HotelManagementSystemProject.Layout
                     }
                     foreach (DichVu dichVu in listDichVu)
                     {
-                        UCFood uc = new UCFood(dichVu);
+                        UCFood uc = new UCFood(dichVu,0);
                         //panelAddObject.Controls.Clear();
                         //FAddFood form = new FAddFood();
                         uc.SetFormFood(fAddFood);
@@ -397,7 +414,7 @@ namespace HotelManagementSystemProject.Layout
 
                 case "Rooms":
                     db.openConnection();
-                    cmd = new SqlCommand("SELECT * FROM func_LayPhongTheoLoai(@LoaiPhong,@TrangThai)", db.getConnection);
+                    cmd = new SqlCommand("SELECT * FROM func_LocPhong(@LoaiPhong,@TrangThai)", db.getConnection);
                     cmd.CommandType = CommandType.Text;
                     if (cbbType.Text != "ALL")
                     {
@@ -427,7 +444,7 @@ namespace HotelManagementSystemProject.Layout
             }
         }
 
-        }
+        
       
         private void DtgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -703,7 +720,7 @@ namespace HotelManagementSystemProject.Layout
                     container(fBills);
                     break;
                 case "Employee":
-                    if (e.RowIndex < 0) // Click vào header hoặc khoảng trống
+                    if (e.RowIndex < 0 || String.IsNullOrEmpty(dtgvObject.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString())) // Click vào header hoặc khoảng trống
                     {
                         // Reset form về trạng thái ban đầu
                         fAddEmployee = new FAddEmployee(); // Tạo form mới
@@ -769,9 +786,7 @@ namespace HotelManagementSystemProject.Layout
                     break; // Ensure that default also terminates
             }
         }
-        private void dtgvObject_Click(object sender, EventArgs e)
-        {
-
+       
         private void txtGuestID_TextChanged(object sender, EventArgs e)
         {
             try
